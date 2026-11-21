@@ -221,13 +221,80 @@ section{padding:110px 0;scroll-margin-top:72px}
 footer.site{background:var(--pine);color:#B9CDC4;padding:44px 0;font-size:15px}
 footer.site .wrap{display:flex;flex-wrap:wrap;gap:20px;justify-content:space-between;align-items:center}
 footer.site a{text-decoration:none;color:#E3EEE8;margin-left:22px}
+
+/* hero promises */
+.promise{margin:18px 0 0;padding:0;list-style:none;display:flex;flex-wrap:wrap;gap:8px 22px;font-size:15px;color:var(--ink-2)}
+.promise li{display:flex;align-items:center;gap:8px}
+.promise li::before{content:'';width:16px;height:16px;flex:none;border-radius:50%;background:var(--leaf) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4.5 8.2 7 10.6l4.5-5' fill='none' stroke='%23fff' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/16px no-repeat}
+
+/* just added */
+.new{padding:96px 0 40px}
+.new-badge{display:inline-block;background:var(--sun);color:var(--pine);font:600 14px var(--body);padding:5px 14px;border-radius:999px;margin-bottom:18px}
+.new-grid{margin-top:48px;display:grid;grid-template-columns:1.05fr .95fr;gap:28px;align-items:stretch}
+@media(max-width:940px){.new-grid{grid-template-columns:1fr}}
+@media(max-width:560px){.voice-card,.calc-out{padding:26px;border-radius:24px}.new{padding-top:72px}}
+.voice-card{background:var(--pine);color:#fff;border-radius:32px;padding:40px;display:flex;flex-direction:column;gap:22px;position:relative;overflow:hidden}
+.voice-card h3{font-size:clamp(30px,3.4vw,44px);font-weight:800;line-height:1.02;letter-spacing:-.03em}
+.voice-card p{color:#C9DAD2;font-size:18px;max-width:30em}
+.lang-stage{color:var(--pine);background:var(--wall);border-radius:22px;padding:22px 18px;display:flex;flex-direction:column;gap:8px;min-height:212px;justify-content:flex-end}
+.lang-stage .b{max-width:88%}
+.lang-stage .voice{min-width:200px}
+.lang-stage .said{font-size:13px;color:#54656F;margin-top:4px}
+.lang-stage .who-said{font-size:11.5px;color:#54656F;margin-bottom:2px;display:block}
+.lang-dots{display:flex;flex-wrap:wrap;gap:8px}
+.lang-dots button{font:600 14px var(--body);color:#C9DAD2;background:transparent;border:1px solid rgba(255,255,255,.22);border-radius:999px;padding:6px 14px;cursor:pointer}
+.lang-dots button[aria-pressed=true]{background:#fff;color:var(--pine);border-color:#fff}
+.new-list{display:flex;flex-direction:column;border-top:1px solid var(--line)}
+.new-item{display:grid;grid-template-columns:56px 1fr;gap:18px;padding:26px 0;border-bottom:1px solid var(--line)}
+.new-item .ic{width:56px;height:56px;border-radius:16px;background:var(--mist);display:grid;place-items:center;color:var(--leaf)}
+.new-item h3{font-size:24px;font-weight:700;letter-spacing:-.02em}
+.new-item p{margin-top:6px;color:var(--ink-2)}
+
+/* calculator */
+.calc{background:var(--mist);border-block:1px solid var(--line)}
+.calc-grid{margin-top:46px;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+@media(max-width:900px){.calc-grid{grid-template-columns:1fr}}
+.calc-in{display:flex;flex-direction:column;gap:26px}
+.calc-in label{display:flex;flex-direction:column;gap:10px;font-weight:600}
+.calc-in .row{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+.calc-in output{font:700 22px var(--display);color:var(--leaf)}
+.calc-in input[type=range]{width:100%;accent-color:var(--leaf);height:28px}
+.calc-in .money{display:flex;align-items:center;gap:10px;background:#fff;border:1px solid var(--line);border-radius:14px;height:54px;padding:0 16px;max-width:260px}
+.calc-in .money span{color:var(--ink-2);font-weight:500}
+.calc-in .money input{border:0;outline:0;font:700 20px var(--display);width:100%;color:var(--pine);background:transparent}
+.calc-in .money:focus-within{border-color:var(--leaf);box-shadow:0 0 0 3px rgba(11,122,85,.15)}
+.calc-out{background:var(--pine);color:#fff;border-radius:32px;padding:40px}
+.calc-out .lbl{color:#B9CDC4;font-size:17px}
+.calc-out .loss{font:800 clamp(46px,6vw,76px)/1 var(--display);letter-spacing:-.035em;margin:12px 0 6px;color:var(--sun)}
+.calc-out .vs{margin-top:22px;padding-top:22px;border-top:1px solid rgba(255,255,255,.14);color:#C9DAD2;font-size:17px}
+.calc-out .vs b{color:#fff}
+.calc-out .btn{margin-top:26px}
+.calc-out small{display:block;margin-top:16px;color:#8FAA9D;font-size:13.5px}
+
+/* numbers mini UI */
+.nums-ui{padding:16px;display:flex;flex-direction:column;gap:10px}
+.nums-ui .sw{display:flex;justify-content:space-between;align-items:center;background:var(--pine);color:#fff;border-radius:12px;padding:12px 14px;font-weight:600}
+.nums-ui .sw small{color:#9FB3A8;font-weight:500;display:block;font-size:12px}
+.nums-ui .n{display:flex;align-items:center;gap:12px;border:1px solid #E6ECE8;border-radius:12px;padding:10px 12px}
+.nums-ui .n b{display:block}.nums-ui .n span{color:#667781;font-size:13px}
+.nums-ui .n .who{margin-left:auto}
+
+/* sticky mobile CTA */
+.mcta{position:fixed;left:12px;right:12px;bottom:12px;z-index:30;display:none;align-items:center;gap:12px;background:var(--pine);color:#fff;border-radius:18px;padding:10px 10px 10px 18px;box-shadow:0 14px 34px rgba(0,0,0,.28);transform:translateY(140%);transition:transform .25s}
+.mcta.show{transform:none}
+.mcta span{flex:1;font-size:14.5px;line-height:1.3}
+.mcta span b{display:block;font-family:var(--display);font-size:16px}
+.mcta .btn{height:46px;padding:0 18px;font-size:15px;flex:none}
+@media(max-width:760px){.mcta{display:flex}footer.site{padding-bottom:110px}}
+@media(prefers-reduced-motion:reduce){.mcta{transition:none}}
+footer.site nav{display:flex;flex-wrap:wrap;gap:8px 0}
 </style>
 </head>
 <body>
 <header class="nav" id="nav">
   <div class="wrap">
     <a class="logo" href="./" aria-label="WhatsEaze home"><svg width="34" height="34" viewBox="0 0 100 100" aria-hidden="true"><path fill="#0B7A55" d="M30 8H74C86.15 8 96 17.85 96 30V62C96 74.15 86.15 84 74 84H36L14 97C12 98.2 9.6 96.4 10.3 94.2L14.5 80.6C8.8 76.6 6 70 6 62V30C6 17.85 15.85 8 30 8Z"/><path d="M24 44L35.5 62L50 41.5L62.5 62L80 31" fill="none" stroke="#fff" stroke-width="9.5" stroke-linecap="round" stroke-linejoin="round"/></svg>WhatsEaze</a>
-    <nav class="nav-links" aria-label="Sections"><a href="#how">How it works</a><a href="#features">Features</a><a href="#pricing">Pricing</a><a href="#faq">Questions</a></nav>
+    <nav class="nav-links" aria-label="Sections"><a href="#new">What's new</a><a href="#features">Features</a><a href="#pricing">Pricing</a><a href="#faq">Questions</a></nav>
     <div class="nav-cta"><a class="signin" id="signin" href="https://www.whatseaze.com/app#/login">Sign in</a><a class="btn btn-primary" id="navStart" href="https://www.whatseaze.com/app#/signup">Start free trial</a></div>
   </div>
 </header>
@@ -237,9 +304,9 @@ footer.site a{text-decoration:none;color:#E3EEE8;margin-left:22px}
   <div class="wrap">
     <div>
       <h1 id="hero-h"><span class="line">Every WhatsApp</span><span class="line">message answered.</span><span class="line">Even at midnight.</span></h1>
-      <p class="hero-sub">WhatsEaze puts your business WhatsApp in one inbox your whole team can use. Every customer gets a quick, natural reply in your own voice, even to voice notes, and the important chats come straight back to you.</p>
+      <p class="hero-sub">WhatsEaze puts all your business WhatsApp numbers in one inbox your whole team can use. Every customer gets a quick, natural reply in their own language, even a voice note in your own voice, and the important chats come straight back to you.</p>
       <div class="hero-cta"><a class="btn btn-primary" href="https://www.whatseaze.com/app#/signup">Start your 3-day free trial</a><a class="btn btn-ghost" href="#pricing">See pricing</a></div>
-      <p class="hero-note">Nothing to pay for 3 days, then your plan starts. Cancel anytime before. Works with the WhatsApp number you already have.</p>
+      <ul class="promise"><li>Your existing WhatsApp numbers</li><li>Replies in any language</li><li>3 days free, cancel anytime</li></ul>
     </div>
 
     <div class="stage" aria-label="Example conversation: a customer sends a voice note late at night and the business replies with a voice note">
@@ -260,6 +327,34 @@ footer.site a{text-decoration:none;color:#E3EEE8;margin-left:22px}
   <div class="wrap" id="proofRow"></div>
 </div>
 
+<section class="new" id="new" aria-labelledby="new-h">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="new-badge">Just added</span>
+      <h2 id="new-h">Sounds like you. Speaks like them.</h2>
+      <p>The newest WhatsEaze features, now in every account.</p>
+    </div>
+    <div class="new-grid">
+      <div class="voice-card">
+        <h3>Voice notes in your own voice, in their language.</h3>
+        <p>Record your voice once. When a customer sends a voice note, they get one back that sounds like you, in the language they spoke, with real warmth instead of a robot tone.</p>
+        <div class="lang-stage" id="langStage" aria-live="polite"></div>
+        <div class="lang-dots" id="langDots" role="group" aria-label="Pick a language to see an example"></div>
+      </div>
+      <div class="new-list">
+        <div class="new-item"><span class="ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="2" width="11" height="17" rx="2"/><path d="M9 16h3"/><path d="M19 7v12a2 2 0 0 1-2 2H9"/></svg></span>
+          <div><h3>As many WhatsApp numbers as you need</h3><p>Sales, support, each branch. Link every number to one business and switch between them in one click. Same team, same AI, one dashboard.</p></div></div>
+        <div class="new-item"><span class="ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><path d="M8 9h8M8 13h5"/></svg></span>
+          <div><h3>Reads the whole chat first</h3><p>It looks at what was already said, including messages you typed yourself, before it answers. If you've already replied, it stays quiet. If something's unclear, it asks.</p></div></div>
+        <div class="new-item"><span class="ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg></span>
+          <div><h3>Any language, any script</h3><p>Arabic, Hindi, Malayalam, Urdu, French, Tagalog and many more. It replies in the language your customer uses, written the way they write it.</p></div></div>
+        <div class="new-item"><span class="ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 10v4M11 7v10M15 9v6M19 11v2M3 11v2"/></svg></span>
+          <div><h3>Talks like a person, not a pitch</h3><p>Hi gets a hi back. It chats naturally first and only talks business when the customer does, in the same short, friendly style you use.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section id="moments" aria-labelledby="mom-h">
   <div class="wrap">
     <div class="sec-head">
@@ -275,7 +370,7 @@ footer.site a{text-decoration:none;color:#E3EEE8;margin-left:22px}
       <div class="moment">
         <time>1:05 pm<small>Busy lunch hour</small></time>
         <div class="m-msg"><div class="b in"><div class="voice"><i class="play"></i><span class="wave"></span><span>0:18</span></div></div></div>
-        <div class="m-out"><span class="lbl without">Without: the voice note waits until someone has a quiet moment.</span><span class="lbl">With WhatsEaze:</span><div class="b out"><span class="ai-tag">AI</span><br>Got it, the 2-bedroom in JVC is still available. I can send you the floor plan now.</div></div>
+        <div class="m-out"><span class="lbl without">Without: the voice note waits until someone has a quiet moment.</span><span class="lbl">With WhatsEaze: a voice note back, in your voice.</span><div class="b out"><div class="voice"><i class="play"></i><span class="wave"></span><span>0:11</span></div></div></div>
       </div>
       <div class="moment">
         <time>Monday<small>New offer</small></time>
@@ -286,13 +381,34 @@ footer.site a{text-decoration:none;color:#E3EEE8;margin-left:22px}
   </div>
 </section>
 
-<section id="how" aria-labelledby="how-h" style="padding-top:0">
+<section class="calc" id="calc" aria-labelledby="calc-h">
+  <div class="wrap">
+    <div class="sec-head"><h2 id="calc-h">What are slow replies costing you?</h2><p>Move the sliders to match your business. It's a rough estimate based on your own numbers.</p></div>
+    <div class="calc-grid">
+      <div class="calc-in">
+        <label for="cMsgs"><span class="row">New customer messages a day <output id="oMsgs" for="cMsgs">20</output></span><input id="cMsgs" type="range" min="1" max="200" value="20"></label>
+        <label for="cLate"><span class="row">Answered more than an hour later <output id="oLate" for="cLate">30%</output></span><input id="cLate" type="range" min="0" max="100" step="5" value="30"></label>
+        <label for="cVal">Average sale or booking value<span class="money"><span id="cCur">USD</span><input id="cVal" type="number" inputmode="numeric" min="0" step="1" value="60"></span></label>
+      </div>
+      <div class="calc-out" aria-live="polite">
+        <p class="lbl">If 1 in 5 slow replies buys from someone else, you could be losing about</p>
+        <p class="loss" id="cLoss">USD 0</p>
+        <p class="lbl">every month.</p>
+        <p class="vs" id="cVs">WhatsEaze Pro answers all of them, from <b>USD 99</b> a month.</p>
+        <a class="btn btn-sun" href="https://www.whatseaze.com/app#/signup?plan=pro">Try Pro free for 3 days</a>
+        <small>Estimate only: your messages a day × 30 days × the share answered late × 1 in 5 × your average sale.</small>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="how" aria-labelledby="how-h">
   <div class="wrap">
     <div class="sec-head"><h2 id="how-h">Set up before your coffee gets cold.</h2></div>
     <ol class="steps" style="list-style:none;padding:0">
-      <li class="step"><h3>Link your number</h3><p>Scan a QR code with WhatsApp on your phone, like WhatsApp Web. Your number, chats and contacts stay the same.</p></li>
-      <li class="step"><h3>Tell the AI about you</h3><p>Write what you sell, your prices and links in plain words. The AI only uses these facts, and asks you about anything else.</p></li>
-      <li class="step"><h3>Switch it on</h3><p>New customers get answers in seconds. Friends and family are skipped, and the AI steps back the moment you reply yourself.</p></li>
+      <li class="step"><h3>Link your numbers</h3><p>Scan a QR code with WhatsApp on each phone, like WhatsApp Web. Add as many numbers as you need. Your chats and contacts stay the same.</p></li>
+      <li class="step"><h3>Tell the AI about you</h3><p>Write what you sell, your prices, links and how you text, in plain words. Record your voice if you want voice-note replies.</p></li>
+      <li class="step"><h3>Switch it on</h3><p>Customers get answers in seconds, in their language. Friends and family are skipped, and if you've already replied, the AI stays quiet.</p></li>
     </ol>
   </div>
 </section>
@@ -303,7 +419,7 @@ footer.site a{text-decoration:none;color:#E3EEE8;margin-left:22px}
 
     <div class="f-rows">
       <div class="f-row">
-        <div><h3>One inbox for the whole team</h3><p>Everyone answers from the same business number, on any computer. Add as many agents as you need on every plan.</p>
+        <div><h3>One inbox for the whole team</h3><p>Everyone answers from your business numbers, on any computer. Add as many agents as you need on every plan.</p>
           <ul><li>Photos, videos, voice notes, documents, locations and polls</li><li>Replies, reactions, forwarding and pinned chats</li><li>See who is online or typing, like on your phone</li></ul></div>
         <div class="f-art" aria-hidden="true"><div class="mini">
           <div class="mini-row"><span class="mini-av" style="background:#FBD3C2;color:#8A3A1C">R</span><div class="t"><b>Reem</b><span>Can I book for tomorrow morning?</span></div><span class="who ai">AI</span></div>
@@ -314,14 +430,25 @@ footer.site a{text-decoration:none;color:#E3EEE8;margin-left:22px}
       </div>
 
       <div class="f-row">
-        <div><h3>An AI that sounds like you, not a bot</h3><p>Short, friendly replies in the customer's own language, from English to Arabic, Hindi and Urdu. It listens to voice notes and looks at photos before it answers.</p>
-          <ul><li>Uses only the facts you give it, never invents prices</li><li>Types at a human pace, so replies feel natural</li><li>Alerts you on WhatsApp when a chat needs a person</li></ul></div>
+        <div><h3>An AI that sounds like you, not a bot</h3><p>Short, friendly replies in the customer's own language, in your texting style. It listens to voice notes, looks at photos and reads the chat before it answers, and can reply with a voice note in your voice.</p>
+          <ul><li>Uses only the facts you give it, never invents prices</li><li>Never repeats what you already told the customer</li><li>Alerts you on WhatsApp when a chat needs a person</li></ul></div>
         <div class="f-art" aria-hidden="true"><div class="mini"><div class="mini-chat">
           <div class="b in"><div class="voice"><i class="play"></i><span class="wave"></span><span>0:09</span></div></div>
           <div class="b out"><span class="ai-tag">AI</span><br>بالتأكيد! التوصيل مجاني فوق 100 درهم. أرسل لك القائمة؟</div>
           <div class="b in">📷 Photo<br>Do you have this in blue?</div>
           <div class="b out"><span class="ai-tag">AI</span><br>That one comes in navy and sky blue, both in stock. Which size?</div>
         </div></div></div>
+      </div>
+
+      <div class="f-row">
+        <div><h3>Every number, one dashboard</h3><p>Run your sales line, support line and every branch from one place. Each number keeps its own chats and campaigns, and your team switches between them in a click.</p>
+          <ul><li>No limit on how many numbers you link</li><li>Name each number so everyone knows where they are</li><li>One AI setup and one voice for all of them</li></ul></div>
+        <div class="f-art" aria-hidden="true"><div class="mini nums-ui">
+          <div class="sw"><div>Sales<small>+971 50 123 4567</small></div><span>▾</span></div>
+          <div class="n"><span class="mini-av" style="background:#DFF5E8;color:#0B7A55">S</span><div><b>Sales</b><span>12 new chats today</span></div><span class="who">Connected</span></div>
+          <div class="n"><span class="mini-av" style="background:#D6E8FF;color:#1C4E8A">S</span><div><b>Support</b><span>4 waiting for a reply</span></div><span class="who">Connected</span></div>
+          <div class="n"><span class="mini-av" style="background:#FBD3C2;color:#8A3A1C">B</span><div><b>Marina branch</b><span>AI answered 31 today</span></div><span class="who ai">AI on</span></div>
+        </div></div>
       </div>
 
       <div class="f-row">
@@ -366,8 +493,13 @@ footer.site a{text-decoration:none;color:#E3EEE8;margin-left:22px}
     <div class="sec-head"><h2 id="faq-h">Questions, answered.</h2></div>
     <div class="faq">
       <details><summary>Do I need a new number or the WhatsApp Business API?</summary><p>No. You link the number you already use, the same way WhatsApp Web works. Your chats and contacts stay where they are.</p></details>
-      <details><summary>Will the AI reply to my friends and family?</summary><p>No. People saved in your phone are skipped by default, you can switch the AI off for any chat, and it stops in a chat as soon as you reply yourself.</p></details>
+      <details><summary>Can I connect more than one WhatsApp number?</summary><p>Yes, as many as you need, on every plan. Link each number with a QR code, give it a name like Sales or Support, and switch between numbers from the sidebar. Your team, AI setup and voice are shared across all of them.</p></details>
+      <details><summary>Will the AI reply to my friends and family?</summary><p>No. People saved in your phone are skipped by default and you can switch the AI off for any chat. It also reads the chat first: if you've already answered, it doesn't reply again. You choose whether it steps back completely once you reply yourself.</p></details>
+      <details><summary>Which languages does it speak?</summary><p>It replies in whatever language your customer writes or speaks, including Arabic, Hindi, Urdu, Malayalam, Tamil, Tagalog, French, Russian and many more, written in their own script. Voice-note replies are available in more than 70 languages.</p></details>
+      <details><summary>How do voice-note replies in my voice work?</summary><p>On the Pro plan, the owner records a short sample of their own voice in the dashboard. When a customer sends a voice note, the AI replies with a voice note that sounds like you, in the customer's language. You can turn it off or delete your voice at any time. Only your own voice can be used.</p></details>
       <details><summary>What if a customer asks something the AI doesn't know?</summary><p>It only uses what you've told it about your business. For anything else it says it will check, and you get a WhatsApp alert so you can step in.</p></details>
+      <details><summary>Is WhatsEaze an official WhatsApp product?</summary><p>No. WhatsEaze is an independent service that connects to your number as a linked device, like WhatsApp Web. WhatsApp's own rules still apply, so use it to talk to people who want to hear from you.</p></details>
+      <details><summary>Who can see my chats?</summary><p>Your team, according to the roles you give them, and authorised WhatsEaze staff only when needed for support or security. Read our <a href="https://www.whatseaze.com/privacy">Privacy Policy</a> for the details.</p></details>
       <details><summary>Does it tell people they're talking to an AI?</summary><p>If someone sincerely asks, it says it's an assistant replying for you. It never pretends otherwise.</p></details>
       <details><summary>Is bulk messaging safe for my number?</summary><p>WhatsEaze sends one message at a time with natural gaps and a daily limit, and skips anyone who opted out. Only message people who know you; sending to cold lists can still get any number blocked by WhatsApp.</p></details>
       <details><summary>How does the free trial work?</summary><p>Pick a plan and add your card at checkout. You get the full plan for 3 days and pay nothing. If you keep it, your card is charged when the trial ends; cancel from the Billing page any time before and you're never charged.</p></details>
@@ -379,7 +511,7 @@ footer.site a{text-decoration:none;color:#E3EEE8;margin-left:22px}
 
 <section class="closing" aria-labelledby="close-h">
   <div class="wrap">
-    <div><h2 id="close-h">Your next customer is typing right now.</h2><p>Try any plan free for 3 days. Setup takes about five minutes.</p></div>
+    <div><h2 id="close-h">Your next customer is typing right now.</h2><p>Try any plan free for 3 days. Setup takes about five minutes, and you can cancel in two clicks.</p></div>
     <a class="btn btn-sun" href="https://www.whatseaze.com/app#/signup">Start your free trial</a>
   </div>
 </section>
@@ -388,9 +520,11 @@ footer.site a{text-decoration:none;color:#E3EEE8;margin-left:22px}
 <footer class="site">
   <div class="wrap">
     <span style="display:flex;align-items:center;gap:10px"><svg width="26" height="26" viewBox="0 0 100 100" aria-hidden="true"><path fill="#13A06B" d="M30 8H74C86.15 8 96 17.85 96 30V62C96 74.15 86.15 84 74 84H36L14 97C12 98.2 9.6 96.4 10.3 94.2L14.5 80.6C8.8 76.6 6 70 6 62V30C6 17.85 15.85 8 30 8Z"/><path d="M24 44L35.5 62L50 41.5L62.5 62L80 31" fill="none" stroke="#fff" stroke-width="9.5" stroke-linecap="round" stroke-linejoin="round"/></svg>© <span id="yr"></span> WhatsEaze</span>
-    <nav aria-label="Footer"><a href="#pricing">Pricing</a><a href="https://www.whatseaze.com/app#/login">Sign in</a><a href="mailto:hello@muneezahmed.com">Contact</a></nav>
+    <nav aria-label="Footer"><a href="#pricing">Pricing</a><a href="https://www.whatseaze.com/app#/login">Sign in</a><a href="https://www.whatseaze.com/privacy">Privacy</a><a href="https://www.whatseaze.com/terms">Terms</a><a href="mailto:hello@muneezahmed.com">Contact</a></nav>
   </div>
 </footer>
+
+<div class="mcta" id="mcta" aria-hidden="true"><span><b>3 days free</b>Every message answered</span><a class="btn btn-sun" href="https://www.whatseaze.com/app#/signup" tabindex="-1">Start free trial</a></div>
 
 <script>
 (function () {
@@ -399,7 +533,7 @@ footer.site a{text-decoration:none;color:#E3EEE8;margin-left:22px}
   addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 8), { passive: true });
 
   // Signed in already? Point the header to the dashboard.
-  (location.hostname.endsWith('railway.app') ? fetch('/api/me', { credentials: 'same-origin' }) : Promise.resolve({ ok: false })).then((r) => (r.ok ? r.json() : null)).then((me) => {
+  fetch('/api/me', { credentials: 'same-origin' }).then((r) => (r.ok ? r.json() : null)).then((me) => {
     if (!me) return;
     document.getElementById('signin').remove();
     const b = document.getElementById('navStart'); b.textContent = 'Open dashboard'; b.href = 'https://www.whatseaze.com/app';
@@ -444,6 +578,58 @@ footer.site a{text-decoration:none;color:#E3EEE8;margin-left:22px}
   const io = new IntersectionObserver((e) => { if (e[0].isIntersecting) { play(); io.disconnect(); } }, { threshold: 0.3 });
   io.observe(chat);
 
+  // ---------- just added: the same voice note, in the customer's language ----------
+  const LANGS = [
+    { k: 'English', in: 'Hi, is the facial available tomorrow?', out: 'Yes! 11 am or 4:30 pm. Shall I book one for you?' },
+    { k: 'العربية', dir: 'rtl', in: 'مرحبا، هل يوجد موعد بكرة؟', out: 'أهلاً! عندنا ١١ الصبح أو ٤:٣٠ العصر. أحجز لك؟' },
+    { k: 'हिन्दी', in: 'नमस्ते, कल का अपॉइंटमेंट मिलेगा?', out: 'जी हाँ! सुबह 11 या शाम 4:30, कौन सा बुक करूँ?' },
+    { k: 'മലയാളം', in: 'നാളെ ഒഴിവുണ്ടോ?', out: 'ഉണ്ടല്ലോ! രാവിലെ 11 അല്ലെങ്കിൽ വൈകുന്നേരം 4:30. ഏതാ വേണ്ടത്?' },
+    { k: 'Français', in: 'Bonjour, vous avez de la place demain ?', out: 'Bonjour ! 11 h ou 16 h 30, je vous réserve lequel ?' },
+  ];
+  const stage = document.getElementById('langStage'), dots = document.getElementById('langDots');
+  let li = 0, lt = null;
+  function showLang(i, user) {
+    li = i; const L = LANGS[i];
+    dots.querySelectorAll('button').forEach((b, j) => b.setAttribute('aria-pressed', String(j === i)));
+    const bubble = (cls, who, len, text) => {
+      const x = el('div', cls); const w = el('span', 'who-said'); w.textContent = who; x.append(w); x.insertAdjacentHTML('beforeend', VOICE(len));
+      const t = el('div', 'said'); t.textContent = '“' + text + '”'; if (L.dir) t.dir = L.dir; t.lang = ['en', 'ar', 'hi', 'ml', 'fr'][i]; x.append(t); return x;
+    };
+    const a = bubble('b in', 'Customer sends a voice note', '0:04', L.in);
+    const b = bubble('b out', 'You reply, in your own voice', '0:0' + (6 + i), L.out);
+    if (!reduce) { a.classList.add('reveal'); b.classList.add('reveal'); b.style.animationDelay = '.25s'; }
+    stage.replaceChildren(a, b);
+    if (user) clearInterval(lt);
+  }
+  LANGS.forEach((L, i) => { const bt = el('button'); bt.type = 'button'; bt.textContent = L.k; bt.lang = ['en', 'ar', 'hi', 'ml', 'fr'][i]; bt.addEventListener('click', () => showLang(i, true)); dots.append(bt); });
+  showLang(0);
+  if (!reduce) {
+    const io2 = new IntersectionObserver((e) => { if (e[0].isIntersecting) { lt = setInterval(() => showLang((li + 1) % LANGS.length), 3600); io2.disconnect(); } }, { threshold: 0.4 });
+    io2.observe(stage);
+  }
+
+  // ---------- calculator ----------
+  const cMsgs = document.getElementById('cMsgs'), cLate = document.getElementById('cLate'), cVal = document.getElementById('cVal');
+  let calcCur = 'USD';
+  function calc() {
+    const cur = proLocal ? proLocal.currency : 'USD'; calcCur = cur;
+    document.getElementById('cCur').textContent = cur;
+    document.getElementById('oMsgs').textContent = cMsgs.value;
+    document.getElementById('oLate').textContent = cLate.value + '%';
+    const loss = +cMsgs.value * 30 * (+cLate.value / 100) * 0.2 * Math.max(0, +cVal.value || 0);
+    document.getElementById('cLoss').textContent = money(Math.round(loss), cur);
+    const vs = document.getElementById('cVs'); const b = el('b'); b.textContent = money(proLocal ? proLocal.amount : 99, cur);
+    vs.replaceChildren(document.createTextNode('WhatsEaze Pro answers all of them, from '), b, document.createTextNode(' a month.'));
+  }
+  [cMsgs, cLate, cVal].forEach((x) => x.addEventListener('input', calc));
+
+  // ---------- sticky trial bar on phones, after the hero ----------
+  const mcta = document.getElementById('mcta'), hero = document.querySelector('.hero'), closing = document.querySelector('.closing');
+  let pastHero = false, atEnd = false;
+  const upd = () => { const on = pastHero && !atEnd; mcta.classList.toggle('show', on); mcta.setAttribute('aria-hidden', String(!on)); mcta.querySelector('a').tabIndex = on ? 0 : -1; };
+  new IntersectionObserver((e) => { pastHero = !e[0].isIntersecting; upd(); }).observe(hero);
+  new IntersectionObserver((e) => { atEnd = e[0].isIntersecting; upd(); }).observe(closing);
+
   // ---------- live platform numbers (real, from the service) ----------
   fetch('https://www.whatseaze.com/api/public/stats').then((r) => r.json()).then((s) => {
     if (!s || !s.week_messages || s.week_messages < 50) return;
@@ -461,8 +647,11 @@ footer.site a{text-decoration:none;color:#E3EEE8;margin-left:22px}
   const TZ = { 'Asia/Kolkata': 'IN', 'Asia/Calcutta': 'IN', 'Asia/Dubai': 'AE', 'Asia/Riyadh': 'SA', 'Asia/Karachi': 'PK', 'Europe/London': 'GB', 'Asia/Qatar': 'QA', 'Asia/Kuwait': 'KW', 'Asia/Singapore': 'SG', 'Australia/Sydney': 'AU' };
   const tz = Intl.DateTimeFormat().resolvedOptions().timeZone || '';
   const guess = TZ[tz] || (tz.startsWith('America/') ? 'US' : '');
-  const FEAT = { chat: 'Shared WhatsApp inbox', team: 'Unlimited team members', contacts: 'Contacts, tags and opt-outs', analytics: 'Message analytics', bulk: 'Templates and bulk messaging', ai: 'AI chatbot that replies for you' };
-  const ORDER = ['chat', 'team', 'contacts', 'analytics', 'bulk', 'ai'];
+  const FEAT = { chat: 'Shared WhatsApp inbox', numbers: 'Unlimited WhatsApp numbers', team: 'Unlimited team members', contacts: 'Contacts, tags and opt-outs', analytics: 'Message analytics', bulk: 'Templates and bulk messaging', ai: 'AI that replies in any language', voice: 'Voice-note replies in your voice' };
+  const ORDER = ['chat', 'numbers', 'team', 'contacts', 'analytics', 'bulk', 'ai', 'voice'];
+  // "numbers" comes with every plan; "voice" comes with the AI.
+  const has = (p, f) => f === 'numbers' || p.features.includes(f) || (f === 'voice' && p.features.includes('ai'));
+  let proLocal = null;
   const money = (a, c) => { try { return new Intl.NumberFormat(undefined, { style: 'currency', currency: c, maximumFractionDigits: a < 10 && a % 1 ? 2 : 0 }).format(a); } catch { return c + ' ' + a; } };
   const renderPlans = (d) => {
     const wrap = document.getElementById('plans'); wrap.replaceChildren();
@@ -473,16 +662,18 @@ footer.site a{text-decoration:none;color:#E3EEE8;margin-left:22px}
       const bl = el('p', 'blurb'); bl.textContent = p.blurb;
       const pr = el('div', 'price'); const b = el('b'); b.textContent = money(p.local.amount, p.local.currency); const sp = el('span'); sp.textContent = '/month'; pr.append(b, sp);
       const usd = el('p', 'usd'); usd.textContent = p.local.currency !== 'USD' ? `US$${p.usd}/month, billed in ${p.local.currency}` : '';
-      const ul = el('ul'); ORDER.forEach((f) => { const li = el('li', p.features.includes(f) ? '' : 'off'); li.textContent = FEAT[f]; ul.append(li); });
+      const ul = el('ul'); ORDER.forEach((f) => { const li = el('li', has(p, f) ? '' : 'off'); li.textContent = FEAT[f]; ul.append(li); });
+      if (p.id === 'pro') proLocal = p.local;
       const a = el('a', 'btn ' + (p.id === 'standard' ? 'btn-sun' : 'btn-primary')); a.href = 'https://www.whatseaze.com/app#/signup?plan=' + p.id; a.textContent = 'Start free trial';
       card.append(h, bl, pr, usd, ul, a); wrap.append(card);
     });
+    calc();
     document.getElementById('priceNote').textContent = d.currency !== 'USD' ? `Prices shown in ${d.currency} at today's exchange rate; you pay in ${d.currency} at checkout. Taxes may apply.` : 'Prices in US dollars. Taxes may apply at checkout.';
   };
   renderPlans({ currency: 'USD', plans: [
     { id: 'basic', name: 'Basic', usd: 19, local: { amount: 19, currency: 'USD' }, blurb: 'Shared WhatsApp inbox for your whole team', features: ['chat', 'team', 'contacts', 'analytics'] },
     { id: 'standard', name: 'Standard', usd: 49, local: { amount: 49, currency: 'USD' }, blurb: 'Everything in Basic, plus templates and bulk messaging', features: ['chat', 'team', 'contacts', 'analytics', 'bulk'] },
-    { id: 'pro', name: 'Pro', usd: 99, local: { amount: 99, currency: 'USD' }, blurb: 'Everything in Standard, plus the AI chatbot that replies for you', features: ORDER },
+    { id: 'pro', name: 'Pro', usd: 99, local: { amount: 99, currency: 'USD' }, blurb: 'Everything in Standard, plus the AI chatbot that replies for you', features: ['chat', 'team', 'contacts', 'analytics', 'bulk', 'ai'] },
   ] });
   fetch('https://www.whatseaze.com/api/public/pricing' + (guess ? '?country=' + guess : '')).then((r) => r.json()).then(renderPlans).catch(() => {});
 
