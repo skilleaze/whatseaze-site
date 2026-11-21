@@ -223,21 +223,21 @@ footer.site a{text-decoration:none;color:#E3EEE8;margin-left:22px}
   <div class="wrap">
     <div>
       <h1 id="hero-h"><span class="line">Every WhatsApp</span><span class="line">message answered.</span><span class="line">Even at midnight.</span></h1>
-      <p class="hero-sub">WhatsEaze puts your business WhatsApp in one inbox your whole team can use, with an AI that replies in your voice, listens to voice notes, and hands the important chats back to you.</p>
+      <p class="hero-sub">WhatsEaze puts your business WhatsApp in one inbox your whole team can use. Every customer gets a quick, natural reply in your own voice, even to voice notes, and the important chats come straight back to you.</p>
       <div class="hero-cta"><a class="btn btn-primary" href="https://whatseaze-dashboard-production.up.railway.app/app#/signup">Start your 3-day free trial</a><a class="btn btn-ghost" href="#pricing">See pricing</a></div>
       <p class="hero-note">Nothing to pay for 3 days, then your plan starts. Cancel anytime before. Works with the WhatsApp number you already have.</p>
     </div>
 
-    <div class="stage" aria-label="Example conversation: a customer sends a voice note late at night and the AI replies">
+    <div class="stage" aria-label="Example conversation: a customer sends a voice note late at night and the business replies with a voice note">
       <button class="replay" id="replay" type="button" hidden>Play again</button>
       <div class="phone">
         <div class="screen">
-          <div class="chat-top"><span class="av" aria-hidden="true">R</span><div><b>Reem</b><small id="status">online</small></div></div>
+          <div class="chat-top"><span class="av" aria-hidden="true">G</span><div><b>Glow Skin Clinic</b><small id="status">online</small></div></div>
           <div class="chat-body" id="chat" aria-live="polite"></div>
           <div class="chat-in" aria-hidden="true"><div>Type a message</div></div>
         </div>
       </div>
-      <p class="stage-caption"><b>11:42 pm</b>Answered in 12 seconds, while the owner was asleep.</p>
+      <p class="stage-caption"><b>11:42 pm</b>Replied in seconds with a voice note, while the owner was asleep.</p>
     </div>
   </div>
 </section>
@@ -394,15 +394,18 @@ footer.site a{text-decoration:none;color:#E3EEE8;margin-left:22px}
   // ---------- hero conversation: one orchestrated moment ----------
   const chat = document.getElementById('chat'), status = document.getElementById('status'), replay = document.getElementById('replay');
   const el = (tag, cls, html) => { const e = document.createElement(tag); if (cls) e.className = cls; if (html !== undefined) e.innerHTML = html; return e; };
+  // Shown from the customer's phone: green bubbles are the customer, white bubbles are the business.
+  const VOICE = (len) => '<div class="voice"><i class="play"></i><span class="wave"></span><span>' + len + '</span></div>';
   const SCRIPT = [
     { wait: 500, add: () => el('div', 'day', 'Today') },
-    { wait: 700, add: () => el('div', 'b in', 'Hi! Is the deep-cleaning facial available tomorrow?<time>11:42 pm</time>') },
-    { wait: 1300, add: () => el('div', 'b in', '<div class="voice"><i class="play"></i><span class="wave"></span><span>0:07</span></div><time>11:42 pm</time>') },
-    { wait: 900, typing: true, status: 'typing…' },
-    { wait: 2400, add: () => el('div', 'b out', '<span class="ai-tag">AI</span><br>Hi Reem! Yes, tomorrow at 11:00 or 4:30 pm. It takes about an hour and it\'s AED 280.<time>11:42 pm</time>'), status: 'online' },
-    { wait: 1600, add: () => el('div', 'b in', '4:30 please 🙏<time>11:43 pm</time>') },
-    { wait: 800, typing: true, status: 'typing…' },
-    { wait: 1700, add: () => el('div', 'b out', '<span class="ai-tag">AI</span><br>Done, you\'re booked for 4:30 tomorrow. See you then! 😊<time>11:43 pm</time>'), status: 'online' },
+    { wait: 700, add: () => el('div', 'b out', 'Hi! Is the deep-cleaning facial available tomorrow?<time>11:42 pm</time>') },
+    { wait: 1300, add: () => el('div', 'b out', VOICE('0:07') + '<time>11:42 pm</time>') },
+    { wait: 900, status: 'recording audio…' },
+    { wait: 2600, add: () => el('div', 'b in', VOICE('0:09') + '<time>11:42 pm</time>'), status: 'online' },
+    { wait: 1200, add: () => el('div', 'b in', 'Tomorrow 11:00 or 4:30 pm. About an hour, AED 280.<time>11:42 pm</time>') },
+    { wait: 1600, add: () => el('div', 'b out', '4:30 please 🙏<time>11:43 pm</time>') },
+    { wait: 800, status: 'typing…' },
+    { wait: 1700, add: () => el('div', 'b in', "Done, you're booked for 4:30 tomorrow. See you then! 😊<time>11:43 pm</time>"), status: 'online' },
   ];
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
   let timer = null;
