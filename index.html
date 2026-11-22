@@ -404,7 +404,7 @@ footer.site nav{display:flex;flex-wrap:wrap;gap:8px 0}
         <p class="loss" id="cLoss">USD 0</p>
         <p class="lbl">every month.</p>
         <p class="vs" id="cVs">WhatsEaze Pro answers all of them, from <b>USD 99</b> a month.</p>
-        <a class="btn btn-sun" href="https://www.whatseaze.com/app#/signup?plan=pro">Start your free trial</a>
+        <a class="btn btn-sun" href="https://www.whatseaze.com/app#/signup">Start your free trial</a>
         <small>Estimate only: your messages a day × 30 days × the share answered late × 1 in 5 × your average sale.</small>
       </div>
     </div>
@@ -503,7 +503,7 @@ footer.site nav{display:flex;flex-wrap:wrap;gap:8px 0}
 
 <section class="pricing" id="pricing" aria-labelledby="price-h">
   <div class="wrap">
-    <div class="sec-head"><h2 id="price-h">Simple monthly plans.</h2><p>Every plan includes unlimited team members. Your 3-day free trial includes everything in Ultra, then you pay only for the plan you pick.</p></div>
+    <div class="sec-head"><h2 id="price-h">Simple monthly plans.</h2><p>Every plan includes unlimited team members. Every free trial is Ultra, with every feature, for 3 days. Switch to the plan that fits you anytime.</p></div>
     <div class="plans" id="plans"></div>
     <p class="price-note" id="priceNote"></p>
   </div>
@@ -533,7 +533,7 @@ footer.site nav{display:flex;flex-wrap:wrap;gap:8px 0}
       <details><summary>Who can see my chats?</summary><p>Your team, according to the roles you give them, and authorised WhatsEaze staff only when needed for support or security. Read our <a href="https://www.whatseaze.com/privacy">Privacy Policy</a> for the details.</p></details>
       <details><summary>Does it tell people they're talking to an AI?</summary><p>If someone sincerely asks, it says it's an assistant replying for you. It never pretends otherwise.</p></details>
       <details><summary>Is bulk messaging safe for my number?</summary><p>WhatsEaze sends one message at a time with natural gaps and a daily limit, and skips anyone who opted out. Only message people who know you; sending to cold lists can still get any number blocked by WhatsApp.</p></details>
-      <details><summary>How does the free trial work?</summary><p>Pick the plan you want and add your card at checkout. For 3 days you get everything in Ultra, whichever plan you picked, and pay nothing. If you keep it, your card is charged when the trial ends; cancel from the Billing page any time before and you're never charged.</p></details>
+      <details><summary>How does the free trial work?</summary><p>Sign up and add your card at checkout. For 3 days you get everything in Ultra and pay nothing. When the trial ends you continue on Ultra, or switch to a smaller plan from the Billing page first; cancel any time before it ends and you're never charged.</p></details>
       <details><summary>Which currency will I pay in?</summary><p>Prices are shown in your local currency where we can, and you pay in that currency at checkout. Taxes are added where they apply.</p></details>
       <details><summary>Can I cancel anytime?</summary><p>Yes. Cancel from the Billing page and you keep access until the end of the month you've paid for.</p></details>
     </div>
@@ -703,7 +703,7 @@ footer.site nav{display:flex;flex-wrap:wrap;gap:8px 0}
       const usd = el('p', 'usd'); usd.textContent = p.local.currency !== 'USD' ? `US$${p.usd}/month, billed in ${p.local.currency}` : '';
       const ul = el('ul'); ORDER.forEach((f) => { const li = el('li', has(p, f) ? '' : 'off'); li.textContent = featText(p, f); ul.append(li); });
       if (p.id === 'pro') proLocal = p.local;
-      const a = el('a', 'btn ' + (p.id === 'standard' ? 'btn-sun' : 'btn-primary')); a.href = 'https://www.whatseaze.com/app#/signup?plan=' + p.id; a.textContent = 'Start free trial';
+      const a = el('a', 'btn ' + (p.id === 'standard' ? 'btn-sun' : 'btn-primary')); a.href = 'https://www.whatseaze.com/app#/signup'; a.textContent = 'Start free trial';
       card.append(h, bl, pr, usd, ul, a); wrap.append(card);
     });
     calc();
