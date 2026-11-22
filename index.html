@@ -114,6 +114,8 @@ p{margin:0}
 .stage-caption b{font-family:var(--display);font-size:20px;font-weight:700;display:block;line-height:1.1;margin-bottom:3px;letter-spacing:-.02em}
 .replay{position:absolute;right:0;top:-44px;background:#fff;border:1px solid var(--line);border-radius:999px;padding:7px 14px;font:600 13px var(--body);color:var(--pine);cursor:pointer}
 .replay:hover{border-color:var(--pine)}
+.sound-toggle{position:absolute;left:0;top:-44px;background:#fff;border:1px solid var(--line);border-radius:999px;padding:6px 13px;font:600 13px var(--body);color:var(--pine);cursor:pointer;display:inline-flex;gap:6px;align-items:center}
+.sound-toggle:hover{border-color:var(--pine)}
 @media(max-width:1180px){.stage{width:min(370px,100%)}.screen{height:520px}.stage-caption{left:-40px}}
 @media(max-width:900px){.stage{justify-self:center;width:min(380px,100%)}.stage-caption{left:-56px}}
 @media(max-width:560px){.stage{width:min(330px,100%)}.screen{height:470px}.stage-caption{left:-6px;bottom:-34px;max-width:210px;padding:12px 14px}.stage-caption b{font-size:18px}}
@@ -323,6 +325,7 @@ footer.site nav{display:flex;flex-wrap:wrap;gap:8px 0}
     </div>
 
     <div class="stage" aria-label="Example conversation: a customer sends a voice note late at night and the business replies with a voice note">
+      <button class="sound-toggle" id="soundToggle" type="button" aria-pressed="true">🔔 Sound on</button>
       <button class="replay" id="replay" type="button" hidden>Play again</button>
       <div class="phone">
         <div class="screen">
@@ -514,9 +517,16 @@ footer.site nav{display:flex;flex-wrap:wrap;gap:8px 0}
 
 <div class="mcta" id="mcta" aria-hidden="true"><span><b>Try Ultra free</b>3 days, every feature</span><a class="btn btn-sun" href="https://www.whatseaze.com/app#/signup" tabindex="-1">Start free trial</a></div>
 
+<script src="https://www.whatseaze.com/sounds.js"></script>
 <script>
 (function () {
   document.getElementById('yr').textContent = new Date().getFullYear();
+  // ---------- sounds: chat pops in the demo, light tick on buttons, one toggle ----------
+  const snd = (n) => window.WZSound && window.WZSound.play(n);
+  const st = document.getElementById('soundToggle');
+  const paintSound = () => { const on = !window.WZSound || window.WZSound.enabled(); st.textContent = on ? '🔔 Sound on' : '🔕 Sound off'; st.setAttribute('aria-pressed', String(on)); };
+  if (window.WZSound) { st.addEventListener('click', (e) => { e.stopPropagation(); window.WZSound.set(!window.WZSound.enabled()); paintSound(); }); paintSound(); } else st.hidden = true;
+  document.addEventListener('click', (e) => { const t = e.target.closest('.btn, .link, .replay, .lang-dots button, summary, .nav-links a, .signin'); if (t) snd('click'); });
   const nav = document.getElementById('nav');
   addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 8), { passive: true });
 
@@ -555,7 +565,7 @@ footer.site nav{display:flex;flex-wrap:wrap;gap:8px 0}
         if (typingEl) { typingEl.remove(); typingEl = null; }
         if (s.status) status.textContent = s.status;
         if (s.typing) { typingEl = el('div', 'typing', '<i></i><i></i><i></i>'); chat.append(typingEl); }
-        if (s.add) { const m = s.add(); m.classList.add('reveal'); chat.append(m); }
+        if (s.add) { const m = s.add(); m.classList.add('reveal'); chat.append(m); if (m.classList.contains('b')) snd(m.classList.contains('out') ? 'send' : 'receive'); }
         chat.scrollTop = chat.scrollHeight; step();
       }, s.wait);
     };
