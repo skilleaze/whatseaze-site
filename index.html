@@ -177,8 +177,10 @@ section{padding:110px 0;scroll-margin-top:72px}
 
 /* pricing */
 .pricing{background:var(--mist)}
-.plans{margin-top:50px;display:grid;grid-template-columns:repeat(3,1fr);gap:22px;align-items:stretch}
-@media(max-width:900px){.plans{grid-template-columns:1fr;max-width:460px}}
+.plans{margin-top:50px;display:grid;grid-template-columns:repeat(4,1fr);gap:18px;align-items:stretch}
+@media(max-width:1180px){.plans{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:640px){.plans{grid-template-columns:1fr;max-width:460px}}
+.plan{padding:28px 24px}.plan .blurb{min-height:72px}
 .plan{background:#fff;border:1px solid var(--line);border-radius:24px;padding:30px 28px;display:flex;flex-direction:column}
 .plan.pop{background:var(--pine);color:#fff;border-color:var(--pine)}
 .plan h3{font-size:26px;font-weight:700}
@@ -332,10 +334,11 @@ footer.site nav{display:flex;flex-wrap:wrap;gap:8px 0}
     <div class="sec-head">
       <span class="new-badge">Just added</span>
       <h2 id="new-h">Sounds like you. Speaks like them.</h2>
-      <p>The newest WhatsEaze features, now in every account.</p>
+      <p>The newest WhatsEaze features. Voice replies and per-number analytics come with the new Ultra plan.</p>
     </div>
     <div class="new-grid">
       <div class="voice-card">
+        <span class="new-badge" style="align-self:flex-start;margin:0">Ultra</span>
         <h3>Voice notes in your own voice, in their language.</h3>
         <p>Record your voice once. When a customer sends a voice note, they get one back that sounds like you, in the language they spoke, with real warmth instead of a robot tone.</p>
         <div class="lang-stage" id="langStage" aria-live="polite"></div>
@@ -343,7 +346,7 @@ footer.site nav{display:flex;flex-wrap:wrap;gap:8px 0}
       </div>
       <div class="new-list">
         <div class="new-item"><span class="ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="2" width="11" height="17" rx="2"/><path d="M9 16h3"/><path d="M19 7v12a2 2 0 0 1-2 2H9"/></svg></span>
-          <div><h3>As many WhatsApp numbers as you need</h3><p>Sales, support, each branch. Link every number to one business and switch between them in one click. Same team, same AI, one dashboard.</p></div></div>
+          <div><h3>All your WhatsApp numbers in one place</h3><p>Sales, support, each branch. Link several numbers to one business and switch between them in one click: up to 5 on Pro, unlimited on Ultra. Same team, same AI, one dashboard.</p></div></div>
         <div class="new-item"><span class="ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><path d="M8 9h8M8 13h5"/></svg></span>
           <div><h3>Reads the whole chat first</h3><p>It looks at what was already said, including messages you typed yourself, before it answers. If you've already replied, it stays quiet. If something's unclear, it asks.</p></div></div>
         <div class="new-item"><span class="ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg></span>
@@ -406,7 +409,7 @@ footer.site nav{display:flex;flex-wrap:wrap;gap:8px 0}
   <div class="wrap">
     <div class="sec-head"><h2 id="how-h">Set up before your coffee gets cold.</h2></div>
     <ol class="steps" style="list-style:none;padding:0">
-      <li class="step"><h3>Link your numbers</h3><p>Scan a QR code with WhatsApp on each phone, like WhatsApp Web. Add as many numbers as you need. Your chats and contacts stay the same.</p></li>
+      <li class="step"><h3>Link your numbers</h3><p>Scan a QR code with WhatsApp on each phone, like WhatsApp Web. Add more numbers as you grow. Your chats and contacts stay the same.</p></li>
       <li class="step"><h3>Tell the AI about you</h3><p>Write what you sell, your prices, links and how you text, in plain words. Record your voice if you want voice-note replies.</p></li>
       <li class="step"><h3>Switch it on</h3><p>Customers get answers in seconds, in their language. Friends and family are skipped, and if you've already replied, the AI stays quiet.</p></li>
     </ol>
@@ -430,7 +433,7 @@ footer.site nav{display:flex;flex-wrap:wrap;gap:8px 0}
       </div>
 
       <div class="f-row">
-        <div><h3>An AI that sounds like you, not a bot</h3><p>Short, friendly replies in the customer's own language, in your texting style. It listens to voice notes, looks at photos and reads the chat before it answers, and can reply with a voice note in your voice.</p>
+        <div><h3>An AI that sounds like you, not a bot</h3><p>Short, friendly replies in the customer's own language, in your texting style. It listens to voice notes, looks at photos and reads the chat before it answers. On Ultra, it can reply with a voice note in your own voice.</p>
           <ul><li>Uses only the facts you give it, never invents prices</li><li>Never repeats what you already told the customer</li><li>Alerts you on WhatsApp when a chat needs a person</li></ul></div>
         <div class="f-art" aria-hidden="true"><div class="mini"><div class="mini-chat">
           <div class="b in"><div class="voice"><i class="play"></i><span class="wave"></span><span>0:09</span></div></div>
@@ -442,7 +445,7 @@ footer.site nav{display:flex;flex-wrap:wrap;gap:8px 0}
 
       <div class="f-row">
         <div><h3>Every number, one dashboard</h3><p>Run your sales line, support line and every branch from one place. Each number keeps its own chats and campaigns, and your team switches between them in a click.</p>
-          <ul><li>No limit on how many numbers you link</li><li>Name each number so everyone knows where they are</li><li>One AI setup and one voice for all of them</li></ul></div>
+          <ul><li>Up to 5 numbers on Pro, unlimited on Ultra</li><li>Name each number so everyone knows where they are</li><li>Analytics for each number separately on Ultra</li></ul></div>
         <div class="f-art" aria-hidden="true"><div class="mini nums-ui">
           <div class="sw"><div>Sales<small>+971 50 123 4567</small></div><span>▾</span></div>
           <div class="n"><span class="mini-av" style="background:#DFF5E8;color:#0B7A55">S</span><div><b>Sales</b><span>12 new chats today</span></div><span class="who">Connected</span></div>
@@ -493,10 +496,10 @@ footer.site nav{display:flex;flex-wrap:wrap;gap:8px 0}
     <div class="sec-head"><h2 id="faq-h">Questions, answered.</h2></div>
     <div class="faq">
       <details><summary>Do I need a new number or the WhatsApp Business API?</summary><p>No. You link the number you already use, the same way WhatsApp Web works. Your chats and contacts stay where they are.</p></details>
-      <details><summary>Can I connect more than one WhatsApp number?</summary><p>Yes, as many as you need, on every plan. Link each number with a QR code, give it a name like Sales or Support, and switch between numbers from the sidebar. Your team, AI setup and voice are shared across all of them.</p></details>
+      <details><summary>Can I connect more than one WhatsApp number?</summary><p>Yes. Basic includes 1 number, Standard 3, Pro 5 and Ultra unlimited. Link each number with a QR code, give it a name like Sales or Support, and switch between numbers from the sidebar. Your team and AI setup are shared across all of them, and on Ultra you can see analytics for each number separately.</p></details>
       <details><summary>Will the AI reply to my friends and family?</summary><p>No. People saved in your phone are skipped by default and you can switch the AI off for any chat. It also reads the chat first: if you've already answered, it doesn't reply again. You choose whether it steps back completely once you reply yourself.</p></details>
-      <details><summary>Which languages does it speak?</summary><p>It replies in whatever language your customer writes or speaks, including Arabic, Hindi, Urdu, Malayalam, Tamil, Tagalog, French, Russian and many more, written in their own script. Voice-note replies are available in more than 70 languages.</p></details>
-      <details><summary>How do voice-note replies in my voice work?</summary><p>On the Pro plan, the owner records a short sample of their own voice in the dashboard. When a customer sends a voice note, the AI replies with a voice note that sounds like you, in the customer's language. You can turn it off or delete your voice at any time. Only your own voice can be used.</p></details>
+      <details><summary>Which languages does it speak?</summary><p>It replies in whatever language your customer writes or speaks, including Arabic, Hindi, Urdu, Malayalam, Tamil, Tagalog, French, Russian and many more, written in their own script. Voice-note replies (Ultra plan) are available in more than 70 languages.</p></details>
+      <details><summary>How do voice-note replies in my voice work?</summary><p>On the Ultra plan, the owner records a short sample of their own voice in the dashboard. When a customer sends a voice note, the AI replies with a voice note that sounds like you, in the customer's language. You can turn it off or delete your voice at any time. Only your own voice can be used.</p></details>
       <details><summary>What if a customer asks something the AI doesn't know?</summary><p>It only uses what you've told it about your business. For anything else it says it will check, and you get a WhatsApp alert so you can step in.</p></details>
       <details><summary>Is WhatsEaze an official WhatsApp product?</summary><p>No. WhatsEaze is an independent service that connects to your number as a linked device, like WhatsApp Web. WhatsApp's own rules still apply, so use it to talk to people who want to hear from you.</p></details>
       <details><summary>Who can see my chats?</summary><p>Your team, according to the roles you give them, and authorised WhatsEaze staff only when needed for support or security. Read our <a href="https://www.whatseaze.com/privacy">Privacy Policy</a> for the details.</p></details>
@@ -647,10 +650,11 @@ footer.site nav{display:flex;flex-wrap:wrap;gap:8px 0}
   const TZ = { 'Asia/Kolkata': 'IN', 'Asia/Calcutta': 'IN', 'Asia/Dubai': 'AE', 'Asia/Riyadh': 'SA', 'Asia/Karachi': 'PK', 'Europe/London': 'GB', 'Asia/Qatar': 'QA', 'Asia/Kuwait': 'KW', 'Asia/Singapore': 'SG', 'Australia/Sydney': 'AU' };
   const tz = Intl.DateTimeFormat().resolvedOptions().timeZone || '';
   const guess = TZ[tz] || (tz.startsWith('America/') ? 'US' : '');
-  const FEAT = { chat: 'Shared WhatsApp inbox', numbers: 'Unlimited WhatsApp numbers', team: 'Unlimited team members', contacts: 'Contacts, tags and opt-outs', analytics: 'Message analytics', bulk: 'Templates and bulk messaging', ai: 'AI that replies in any language', voice: 'Voice-note replies in your voice' };
-  const ORDER = ['chat', 'numbers', 'team', 'contacts', 'analytics', 'bulk', 'ai', 'voice'];
-  // "numbers" comes with every plan; "voice" comes with the AI.
-  const has = (p, f) => f === 'numbers' || p.features.includes(f) || (f === 'voice' && p.features.includes('ai'));
+  const FEAT = { chat: 'Shared WhatsApp inbox', team: 'Unlimited team members', contacts: 'Contacts, tags and opt-outs', analytics: 'Message analytics', bulk: 'Templates and bulk messaging', ai: 'AI that replies in any language', voice: 'Voice-note replies in your voice', number_analytics: 'Analytics for each number' };
+  const ORDER = ['chat', 'numbers', 'team', 'contacts', 'analytics', 'bulk', 'ai', 'voice', 'number_analytics'];
+  // Every plan has numbers (how many depends on the plan); the rest comes from the plan's feature list.
+  const has = (p, f) => f === 'numbers' || p.features.includes(f);
+  const featText = (p, f) => (f === 'numbers' ? (p.maxNumbers == null ? 'Unlimited WhatsApp numbers' : `${p.maxNumbers} WhatsApp number${p.maxNumbers === 1 ? '' : 's'}`) : FEAT[f]);
   let proLocal = null;
   const money = (a, c) => { try { return new Intl.NumberFormat(undefined, { style: 'currency', currency: c, maximumFractionDigits: a < 10 && a % 1 ? 2 : 0 }).format(a); } catch { return c + ' ' + a; } };
   const renderPlans = (d) => {
@@ -662,7 +666,7 @@ footer.site nav{display:flex;flex-wrap:wrap;gap:8px 0}
       const bl = el('p', 'blurb'); bl.textContent = p.blurb;
       const pr = el('div', 'price'); const b = el('b'); b.textContent = money(p.local.amount, p.local.currency); const sp = el('span'); sp.textContent = '/month'; pr.append(b, sp);
       const usd = el('p', 'usd'); usd.textContent = p.local.currency !== 'USD' ? `US$${p.usd}/month, billed in ${p.local.currency}` : '';
-      const ul = el('ul'); ORDER.forEach((f) => { const li = el('li', has(p, f) ? '' : 'off'); li.textContent = FEAT[f]; ul.append(li); });
+      const ul = el('ul'); ORDER.forEach((f) => { const li = el('li', has(p, f) ? '' : 'off'); li.textContent = featText(p, f); ul.append(li); });
       if (p.id === 'pro') proLocal = p.local;
       const a = el('a', 'btn ' + (p.id === 'standard' ? 'btn-sun' : 'btn-primary')); a.href = 'https://www.whatseaze.com/app#/signup?plan=' + p.id; a.textContent = 'Start free trial';
       card.append(h, bl, pr, usd, ul, a); wrap.append(card);
@@ -671,9 +675,10 @@ footer.site nav{display:flex;flex-wrap:wrap;gap:8px 0}
     document.getElementById('priceNote').textContent = d.currency !== 'USD' ? `Prices shown in ${d.currency} at today's exchange rate; you pay in ${d.currency} at checkout. Taxes may apply.` : 'Prices in US dollars. Taxes may apply at checkout.';
   };
   renderPlans({ currency: 'USD', plans: [
-    { id: 'basic', name: 'Basic', usd: 19, local: { amount: 19, currency: 'USD' }, blurb: 'Shared WhatsApp inbox for your whole team', features: ['chat', 'team', 'contacts', 'analytics'] },
-    { id: 'standard', name: 'Standard', usd: 49, local: { amount: 49, currency: 'USD' }, blurb: 'Everything in Basic, plus templates and bulk messaging', features: ['chat', 'team', 'contacts', 'analytics', 'bulk'] },
-    { id: 'pro', name: 'Pro', usd: 99, local: { amount: 99, currency: 'USD' }, blurb: 'Everything in Standard, plus the AI chatbot that replies for you', features: ['chat', 'team', 'contacts', 'analytics', 'bulk', 'ai'] },
+    { id: 'basic', name: 'Basic', usd: 19, maxNumbers: 1, local: { amount: 19, currency: 'USD' }, blurb: 'Shared WhatsApp inbox for your whole team', features: ['chat', 'team', 'contacts', 'analytics'] },
+    { id: 'standard', name: 'Standard', usd: 49, maxNumbers: 3, local: { amount: 49, currency: 'USD' }, blurb: 'Everything in Basic, plus templates and bulk messaging', features: ['chat', 'team', 'contacts', 'analytics', 'bulk'] },
+    { id: 'pro', name: 'Pro', usd: 99, maxNumbers: 5, local: { amount: 99, currency: 'USD' }, blurb: 'Everything in Standard, plus the AI chatbot that replies for you', features: ['chat', 'team', 'contacts', 'analytics', 'bulk', 'ai'] },
+    { id: 'ultra', name: 'Ultra', usd: 199, maxNumbers: null, local: { amount: 199, currency: 'USD' }, blurb: 'Everything in Pro, plus unlimited numbers, voice replies in your voice and analytics per number', features: ['chat', 'team', 'contacts', 'analytics', 'bulk', 'ai', 'voice', 'number_analytics'] },
   ] });
   fetch('https://www.whatseaze.com/api/public/pricing' + (guess ? '?country=' + guess : '')).then((r) => r.json()).then(renderPlans).catch(() => {});
 
