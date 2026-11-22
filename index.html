@@ -166,6 +166,7 @@ section{padding:104px 0;scroll-margin-top:72px}
 .mini-row:last-child{border-bottom:none}
 .mini-av{width:36px;height:36px;border-radius:50%;flex:none;display:grid;place-items:center;font-weight:700;font-size:13px}
 .mini-row .t{flex:1;min-width:0}.mini-row .t b{display:block;font-weight:600}.mini-row .t span{color:#667781;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:block}
+.ii{display:inline-block;vertical-align:-2px;margin-right:4px;flex:none;color:#8696a0}.sound-toggle .ii{color:inherit;margin:0}.b .ii{color:#667781}
 .who{font-size:12px;font-weight:600;padding:3px 9px;border-radius:999px;background:#E7F3EE;color:var(--leaf)}
 .who.ai{background:var(--sun);color:var(--pine)}
 .mini-chat{background:var(--wall);padding:16px;display:flex;flex-direction:column;gap:8px}
@@ -343,7 +344,7 @@ footer.site nav{display:flex;flex-wrap:wrap;gap:8px 0}
     </div>
 
     <div class="stage" aria-label="Example conversation: a customer sends a voice note late at night and the business replies with a voice note">
-      <button class="sound-toggle" id="soundToggle" type="button" aria-pressed="true">🔔 Sound on</button>
+      <button class="sound-toggle" id="soundToggle" type="button" aria-pressed="true"><svg class="ii" width="15" height="15" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 22a2.2 2.2 0 0 0 2.2-2.2H9.8A2.2 2.2 0 0 0 12 22zm6.5-6.2V11a6.5 6.5 0 0 0-5-6.3V4a1.5 1.5 0 0 0-3 0v.7a6.5 6.5 0 0 0-5 6.3v4.8L3.6 17.7v1h16.8v-1z"/></svg>Sound on</button>
       <button class="replay" id="replay" type="button" hidden>Play again</button>
       <div class="phone">
         <div class="screen">
@@ -432,8 +433,8 @@ footer.site nav{display:flex;flex-wrap:wrap;gap:8px 0}
           <ul><li>Photos, videos, voice notes, documents, locations and polls</li><li>Replies, reactions, forwarding and pinned chats</li><li>See who is online or typing, like on your phone</li></ul></div>
         <div class="f-art" aria-hidden="true"><div class="mini">
           <div class="mini-row"><span class="mini-av" style="background:#FBD3C2;color:#8A3A1C">R</span><div class="t"><b>Reem</b><span>Can I book for tomorrow morning?</span></div><span class="who ai">AI</span></div>
-          <div class="mini-row"><span class="mini-av" style="background:#D6E8FF;color:#1C4E8A">O</span><div class="t"><b>Omar K.</b><span>🎤 Voice message (0:24)</span></div><span class="who">Sana</span></div>
-          <div class="mini-row"><span class="mini-av" style="background:#E8DDFF;color:#4B2C8A">P</span><div class="t"><b>Priya</b><span>📄 Invoice-1042.pdf</span></div><span class="who">Arjun</span></div>
+          <div class="mini-row"><span class="mini-av" style="background:#D6E8FF;color:#1C4E8A">O</span><div class="t"><b>Omar K.</b><span><svg class="ii" width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 14.5a3 3 0 0 0 3-3v-6a3 3 0 0 0-6 0v6a3 3 0 0 0 3 3zm5.3-3a5.3 5.3 0 0 1-10.6 0H5a7 7 0 0 0 6.1 6.9V21h1.8v-2.6a7 7 0 0 0 6.1-6.9z"/></svg>Voice message (0:24)</span></div><span class="who">Sana</span></div>
+          <div class="mini-row"><span class="mini-av" style="background:#E8DDFF;color:#4B2C8A">P</span><div class="t"><b>Priya</b><span><svg class="ii" width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M6 2h8l6 6v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2zm7 1.5V9h5.5z"/></svg>Invoice-1042.pdf</span></div><span class="who">Arjun</span></div>
           <div class="mini-row"><span class="mini-av" style="background:#DFF5E8;color:#0B7A55">M</span><div class="t"><b>Mohammed</b><span>Thanks, see you at 6!</span></div><span class="who ai">AI</span></div>
         </div></div>
       </div>
@@ -453,7 +454,7 @@ footer.site nav{display:flex;flex-wrap:wrap;gap:8px 0}
           <ul><li>Photos, videos, documents and voice notes</li><li>Automatic steps: after 1 day, 3 days, 7 days</li><li>Only within your sending hours, never to opted-out contacts</li></ul></div>
         <div class="f-art" aria-hidden="true"><div class="mini fu-mini">
           <div class="fm-head"><b>No answer: chase 3 times</b><span class="fm-on">On</span></div>
-          <ol class="fm-tl"><li><b>After 1 day</b><span>“Hi Sara, did you see my last message?”</span></li><li><b>3 days later</b><span>🎙 Voice note + “Still interested?”</span></li><li><b>7 days later</b><span>“I'll close this for now. Reply anytime.”</span></li><li class="end"><b>Stops when they reply</b><span>Sara replied: “Yes, send details!”</span></li></ol>
+          <ol class="fm-tl"><li><b>After 1 day</b><span>“Hi Sara, did you see my last message?”</span></li><li><b>3 days later</b><span><svg class="ii" width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 14.5a3 3 0 0 0 3-3v-6a3 3 0 0 0-6 0v6a3 3 0 0 0 3 3zm5.3-3a5.3 5.3 0 0 1-10.6 0H5a7 7 0 0 0 6.1 6.9V21h1.8v-2.6a7 7 0 0 0 6.1-6.9z"/></svg>Voice note + “Still interested?”</span></li><li><b>7 days later</b><span>“I'll close this for now. Reply anytime.”</span></li><li class="end"><b>Stops when they reply</b><span>Sara replied: “Yes, send details!”</span></li></ol>
         </div></div>
       </div>
 
@@ -463,7 +464,7 @@ footer.site nav{display:flex;flex-wrap:wrap;gap:8px 0}
         <div class="f-art" aria-hidden="true"><div class="mini"><div class="mini-chat">
           <div class="b in"><div class="voice"><i class="play"></i><span class="wave"></span><span>0:09</span></div></div>
           <div class="b out"><span class="ai-tag">AI</span><br>بالتأكيد! التوصيل مجاني فوق 100 درهم. أرسل لك القائمة؟</div>
-          <div class="b in">📷 Photo<br>Do you have this in blue?</div>
+          <div class="b in"><svg class="ii" width="15" height="15" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M9 4h6l1.5 2H20a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h3.5zm3 4a4.5 4.5 0 1 0 0 9 4.5 4.5 0 0 0 0-9z"/></svg>Photo<br>Do you have this in blue?</div>
           <div class="b out"><span class="ai-tag">AI</span><br>That one comes in navy and sky blue, both in stock. Which size?</div>
         </div></div></div>
       </div>
@@ -564,7 +565,7 @@ footer.site nav{display:flex;flex-wrap:wrap;gap:8px 0}
   // ---------- sounds: chat pops in the demo, light tick on buttons, one toggle ----------
   const snd = (n) => window.WZSound && window.WZSound.play(n);
   const st = document.getElementById('soundToggle');
-  const paintSound = () => { const on = !window.WZSound || window.WZSound.enabled(); st.textContent = on ? '🔔 Sound on' : '🔕 Sound off'; st.setAttribute('aria-pressed', String(on)); };
+  const paintSound = () => { const on = !window.WZSound || window.WZSound.enabled(); st.innerHTML = on ? '<svg class="ii" width="15" height="15" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 22a2.2 2.2 0 0 0 2.2-2.2H9.8A2.2 2.2 0 0 0 12 22zm6.5-6.2V11a6.5 6.5 0 0 0-5-6.3V4a1.5 1.5 0 0 0-3 0v.7a6.5 6.5 0 0 0-5 6.3v4.8L3.6 17.7v1h16.8v-1z"/></svg>Sound on' : '<svg class="ii" width="15" height="15" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 22a2.2 2.2 0 0 0 2.2-2.2H9.8A2.2 2.2 0 0 0 12 22zm6.5-7.4V11a6.5 6.5 0 0 0-5-6.3V4a1.5 1.5 0 0 0-3 0v.7c-.6.1-1.1.4-1.6.6l9.6 9.6zM4.3 3 3 4.3l3 3A6.5 6.5 0 0 0 5.5 11v4.8l-1.9 1.9v1h13.6l2.5 2.5 1.3-1.3z"/></svg>Sound off'; st.setAttribute('aria-pressed', String(on)); };
   if (window.WZSound) { st.addEventListener('click', (e) => { e.stopPropagation(); window.WZSound.set(!window.WZSound.enabled()); paintSound(); }); paintSound(); } else st.hidden = true;
   document.addEventListener('click', (e) => { const t = e.target.closest('.btn, .link, .replay, .lang-dots button, summary, .nav-links a, .signin'); if (t) snd('click'); });
   const nav = document.getElementById('nav');
@@ -589,9 +590,9 @@ footer.site nav{display:flex;flex-wrap:wrap;gap:8px 0}
     { wait: 900, status: 'recording audio…' },
     { wait: 2600, add: () => el('div', 'b in', VOICE('0:09') + '<time>11:42 pm</time>'), status: 'online' },
     { wait: 1200, add: () => el('div', 'b in', 'Tomorrow 11:00 or 4:30 pm. About an hour, AED 280.<time>11:42 pm</time>') },
-    { wait: 1600, add: () => el('div', 'b out', '4:30 please 🙏<time>11:43 pm</time>') },
+    { wait: 1600, add: () => el('div', 'b out', '4:30 please<time>11:43 pm</time>') },
     { wait: 800, status: 'typing…' },
-    { wait: 1700, add: () => el('div', 'b in', "Done, you're booked for 4:30 tomorrow. See you then! 😊<time>11:43 pm</time>"), status: 'online' },
+    { wait: 1700, add: () => el('div', 'b in', "Done, you're booked for 4:30 tomorrow. See you then!<time>11:43 pm</time>"), status: 'online' },
   ];
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
   let timer = null;
