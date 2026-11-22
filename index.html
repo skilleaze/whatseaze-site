@@ -286,6 +286,24 @@ footer.site a{text-decoration:none;color:#E3EEE8;margin-left:22px}
 .calc-out .btn{margin-top:26px}
 .calc-out small{display:block;margin-top:16px;color:#8FAA9D;font-size:13.5px}
 
+/* leads + follow-ups minis */
+.lead-mini{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;padding:14px}
+.lm-col{background:#F2F5F3;border-radius:12px;padding:8px;display:flex;flex-direction:column;gap:6px;min-width:0}
+.lm-h{display:flex;align-items:center;gap:6px;font-size:12px;font-weight:600;color:var(--pine)}
+.lm-h i{width:7px;height:7px;border-radius:50%}.lm-h b{margin-left:auto;color:#667781}
+.lm-card{background:#fff;border-radius:9px;padding:8px;display:flex;flex-direction:column;gap:5px;box-shadow:0 1px 2px rgba(14,42,34,.08)}
+.lm-card b{font-size:13px}
+.lm-tag{font-size:10.5px;font-weight:600;padding:2px 6px;border-radius:5px;align-self:flex-start;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%}
+.lm-tag.ad{background:#FFF1D2;color:#7A4E00}.lm-tag.org{background:#E6F4EE;color:#0B7A55}.lm-tag.camp{background:#E8EEFB;color:#2C4A8A}
+.fu-mini{padding:18px}
+.fm-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;font-size:14px}
+.fm-on{font-size:11px;font-weight:700;background:#E6F4EE;color:var(--leaf);padding:3px 9px;border-radius:999px}
+.fm-tl{list-style:none;margin:0;padding:0 0 0 14px;border-left:2px solid #DCE5DF;display:flex;flex-direction:column;gap:12px}
+.fm-tl li{position:relative;display:flex;flex-direction:column;gap:2px;font-size:13px}
+.fm-tl li::before{content:'';position:absolute;left:-20px;top:4px;width:10px;height:10px;border-radius:50%;background:#fff;border:2px solid var(--leaf)}
+.fm-tl li.end::before{background:var(--leaf)}
+.fm-tl span{color:#667781}
+
 /* numbers mini UI */
 .nums-ui{padding:16px;display:flex;flex-direction:column;gap:10px}
 .nums-ui .sw{display:flex;justify-content:space-between;align-items:center;background:var(--pine);color:#fff;border-radius:12px;padding:12px 14px;font-weight:600}
@@ -347,8 +365,8 @@ footer.site nav{display:flex;flex-wrap:wrap;gap:8px 0}
   <div class="wrap">
     <div class="sec-head">
       <span class="new-badge">Just added</span>
-      <h2 id="new-h">Sounds like you. Speaks like them.</h2>
-      <p>The newest WhatsEaze features. Voice replies and per-number analytics come with the new Ultra plan.</p>
+      <h2 id="new-h">From first message to closed sale.</h2>
+      <p>The newest WhatsEaze features: a lead pipeline, follow-ups, voice replies in your voice, and all your numbers in one place.</p>
     </div>
     <div class="new-grid">
       <div class="voice-card">
@@ -359,14 +377,14 @@ footer.site nav{display:flex;flex-wrap:wrap;gap:8px 0}
         <div class="lang-dots" id="langDots" role="group" aria-label="Pick a language to see an example"></div>
       </div>
       <div class="new-list">
+        <div class="new-item"><span class="ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 4h18l-7 8v6l-4 2v-8z"/></svg></span>
+          <div><h3>Every lead, tracked for you</h3><p>New chats become leads automatically, marked as from an ad, a campaign or organic. Move them from New lead to Converted, Rejected or No answer, and see your conversion rate.</p></div></div>
+        <div class="new-item"><span class="ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 8v4l3 2"/><circle cx="12" cy="12" r="9"/></svg></span>
+          <div><h3>Follow-ups that chase for you</h3><p>Message everyone in a stage at once, with photos, videos or a voice note. Or let it follow up by itself: day 1, day 3, day 7, stopping the moment they reply.</p></div></div>
         <div class="new-item"><span class="ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="2" width="11" height="17" rx="2"/><path d="M9 16h3"/><path d="M19 7v12a2 2 0 0 1-2 2H9"/></svg></span>
           <div><h3>All your WhatsApp numbers in one place</h3><p>Sales, support, each branch. Link several numbers to one business and switch between them in one click: up to 5 on Pro, unlimited on Ultra. Same team, same AI, one dashboard.</p></div></div>
         <div class="new-item"><span class="ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><path d="M8 9h8M8 13h5"/></svg></span>
           <div><h3>Reads the whole chat first</h3><p>It looks at what was already said, including messages you typed yourself, before it answers. If you've already replied, it stays quiet. If something's unclear, it asks.</p></div></div>
-        <div class="new-item"><span class="ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg></span>
-          <div><h3>Any language, any script</h3><p>Arabic, Hindi, Malayalam, Urdu, French, Tagalog and many more. It replies in the language your customer uses, written the way they write it.</p></div></div>
-        <div class="new-item"><span class="ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 10v4M11 7v10M15 9v6M19 11v2M3 11v2"/></svg></span>
-          <div><h3>Talks like a person, not a pitch</h3><p>Hi gets a hi back. It chats naturally first and only talks business when the customer does, in the same short, friendly style you use.</p></div></div>
       </div>
     </div>
   </div>
@@ -417,6 +435,25 @@ footer.site nav{display:flex;flex-wrap:wrap;gap:8px 0}
           <div class="mini-row"><span class="mini-av" style="background:#D6E8FF;color:#1C4E8A">O</span><div class="t"><b>Omar K.</b><span>🎤 Voice message (0:24)</span></div><span class="who">Sana</span></div>
           <div class="mini-row"><span class="mini-av" style="background:#E8DDFF;color:#4B2C8A">P</span><div class="t"><b>Priya</b><span>📄 Invoice-1042.pdf</span></div><span class="who">Arjun</span></div>
           <div class="mini-row"><span class="mini-av" style="background:#DFF5E8;color:#0B7A55">M</span><div class="t"><b>Mohammed</b><span>Thanks, see you at 6!</span></div><span class="who ai">AI</span></div>
+        </div></div>
+      </div>
+
+      <div class="f-row">
+        <div><h3>Every lead, from first message to sale</h3><p>WhatsEaze turns every new conversation into a lead and tells you where it came from. Your team moves each one along, and you see exactly how many turn into customers.</p>
+          <ul><li>Ad, campaign and organic leads tagged automatically</li><li>New lead, Contacted, Interested, Follow-up, Converted, Rejected, No answer</li><li>Conversion rate by source in Analytics</li></ul></div>
+        <div class="f-art" aria-hidden="true"><div class="mini lead-mini">
+          <div class="lm-col"><span class="lm-h"><i style="background:#2C4A8A"></i>New lead <b>12</b></span><div class="lm-card"><b>Aisha</b><span class="lm-tag ad">Ad: Marina offer</span></div><div class="lm-card"><b>Rahul</b><span class="lm-tag org">Organic</span></div></div>
+          <div class="lm-col"><span class="lm-h"><i style="background:#7A4E00"></i>Interested <b>5</b></span><div class="lm-card"><b>Fatima</b><span class="lm-tag camp">Campaign</span></div></div>
+          <div class="lm-col"><span class="lm-h"><i style="background:#0B7A55"></i>Converted <b>9</b></span><div class="lm-card"><b>Omar K.</b><span class="lm-tag ad">Ad</span></div></div>
+        </div></div>
+      </div>
+
+      <div class="f-row">
+        <div><h3>Follow-ups that never forget</h3><p>Most sales are lost to silence. Send one follow-up to everyone in a stage, schedule it for later, or let WhatsEaze chase quiet leads by itself and stop as soon as they reply.</p>
+          <ul><li>Photos, videos, documents and voice notes</li><li>Automatic steps: after 1 day, 3 days, 7 days</li><li>Only within your sending hours, never to opted-out contacts</li></ul></div>
+        <div class="f-art" aria-hidden="true"><div class="mini fu-mini">
+          <div class="fm-head"><b>No answer: chase 3 times</b><span class="fm-on">On</span></div>
+          <ol class="fm-tl"><li><b>After 1 day</b><span>“Hi Sara, did you see my last message?”</span></li><li><b>3 days later</b><span>🎙 Voice note + “Still interested?”</span></li><li><b>7 days later</b><span>“I'll close this for now. Reply anytime.”</span></li><li class="end"><b>Stops when they reply</b><span>Sara replied: “Yes, send details!”</span></li></ol>
         </div></div>
       </div>
 
@@ -485,6 +522,9 @@ footer.site nav{display:flex;flex-wrap:wrap;gap:8px 0}
     <div class="faq">
       <details><summary>Do I need a new number or the WhatsApp Business API?</summary><p>No. You link the number you already use, the same way WhatsApp Web works. Your chats and contacts stay where they are.</p></details>
       <details><summary>Can I connect more than one WhatsApp number?</summary><p>Yes. Basic includes 1 number, Standard 3, Pro 5 and Ultra unlimited. Link each number with a QR code, give it a name like Sales or Support, and switch between numbers from the sidebar. Your team and AI setup are shared across all of them, and on Ultra you can see analytics for each number separately.</p></details>
+      <details><summary>How are leads tracked?</summary><p>When someone who isn't saved in your phone starts a new conversation, WhatsEaze adds them as a New lead and notes where they came from: an ad (recognised from the ad's first message), one of your campaigns, or organic. Your team moves them through the stages in the inbox or on the Leads board, and Analytics shows how many convert from each source. Every plan includes it.</p></details>
+      <details><summary>What can follow-ups do?</summary><p>Send one message, with a photo, video, document or voice note, to everyone in a stage such as No answer or Converted, now or at a time you choose. Or set up automatic follow-ups that chase quiet leads after a set number of days and stop the moment they reply. Follow-ups come with Standard, Pro and Ultra.</p></details>
+      <details><summary>Can I control what my team sees?</summary><p>Yes. Give each person a role: Managers can do almost everything, Executives work on the numbers you assign them, and Assistants can only read and reply to chats.</p></details>
       <details><summary>Will the AI reply to my friends and family?</summary><p>No. People saved in your phone are skipped by default and you can switch the AI off for any chat. It also reads the chat first: if you've already answered, it doesn't reply again. You choose whether it steps back completely once you reply yourself.</p></details>
       <details><summary>Which languages does it speak?</summary><p>It replies in whatever language your customer writes or speaks, including Arabic, Hindi, Urdu, Malayalam, Tamil, Tagalog, French, Russian and many more, written in their own script. Voice-note replies (Ultra plan) are available in more than 70 languages.</p></details>
       <details><summary>How do voice-note replies in my voice work?</summary><p>On the Ultra plan, the owner records a short sample of their own voice in the dashboard. When a customer sends a voice note, the AI replies with a voice note that sounds like you, in the customer's language. You can turn it off or delete your voice at any time. Only your own voice can be used.</p></details>
@@ -645,10 +685,10 @@ footer.site nav{display:flex;flex-wrap:wrap;gap:8px 0}
   const TZ = { 'Asia/Kolkata': 'IN', 'Asia/Calcutta': 'IN', 'Asia/Dubai': 'AE', 'Asia/Riyadh': 'SA', 'Asia/Karachi': 'PK', 'Europe/London': 'GB', 'Asia/Qatar': 'QA', 'Asia/Kuwait': 'KW', 'Asia/Singapore': 'SG', 'Australia/Sydney': 'AU' };
   const tz = Intl.DateTimeFormat().resolvedOptions().timeZone || '';
   const guess = TZ[tz] || (tz.startsWith('America/') ? 'US' : '');
-  const FEAT = { chat: 'Shared WhatsApp inbox', team: 'Unlimited team members', contacts: 'Contacts, tags and opt-outs', analytics: 'Message analytics', bulk: 'Templates and bulk messaging', ai: 'AI that replies in any language', voice: 'Voice-note replies in your voice', number_analytics: 'Analytics for each number' };
-  const ORDER = ['chat', 'numbers', 'team', 'contacts', 'analytics', 'bulk', 'ai', 'voice', 'number_analytics'];
+  const FEAT = { leads: 'Lead pipeline (ad, campaign, organic)', roles: 'Team roles and permissions', followups: 'Follow-ups: scheduled and automatic', chat: 'Shared WhatsApp inbox', team: 'Unlimited team members', contacts: 'Contacts, tags and opt-outs', analytics: 'Message analytics', bulk: 'Templates and bulk messaging', ai: 'AI that replies in any language', voice: 'Voice-note replies in your voice', number_analytics: 'Analytics for each number' };
+  const ORDER = ['chat', 'numbers', 'team', 'roles', 'leads', 'contacts', 'analytics', 'bulk', 'followups', 'ai', 'voice', 'number_analytics'];
   // Every plan has numbers (how many depends on the plan); the rest comes from the plan's feature list.
-  const has = (p, f) => f === 'numbers' || p.features.includes(f);
+  const has = (p, f) => ['numbers', 'roles', 'leads'].includes(f) || p.features.includes(f === 'followups' ? 'bulk' : f);
   const featText = (p, f) => (f === 'numbers' ? (p.maxNumbers == null ? 'Unlimited WhatsApp numbers' : `${p.maxNumbers} WhatsApp number${p.maxNumbers === 1 ? '' : 's'}`) : FEAT[f]);
   let proLocal = null;
   const money = (a, c) => { try { return new Intl.NumberFormat(undefined, { style: 'currency', currency: c, maximumFractionDigits: a < 10 && a % 1 ? 2 : 0 }).format(a); } catch { return c + ' ' + a; } };
@@ -670,8 +710,8 @@ footer.site nav{display:flex;flex-wrap:wrap;gap:8px 0}
     document.getElementById('priceNote').textContent = d.currency !== 'USD' ? `Prices shown in ${d.currency} at today's exchange rate; you pay in ${d.currency} at checkout. Taxes may apply.` : 'Prices in US dollars. Taxes may apply at checkout.';
   };
   renderPlans({ currency: 'USD', plans: [
-    { id: 'basic', name: 'Basic', usd: 19, maxNumbers: 1, local: { amount: 19, currency: 'USD' }, blurb: 'Shared WhatsApp inbox for your whole team', features: ['chat', 'team', 'contacts', 'analytics'] },
-    { id: 'standard', name: 'Standard', usd: 49, maxNumbers: 3, local: { amount: 49, currency: 'USD' }, blurb: 'Everything in Basic, plus templates and bulk messaging', features: ['chat', 'team', 'contacts', 'analytics', 'bulk'] },
+    { id: 'basic', name: 'Basic', usd: 19, maxNumbers: 1, local: { amount: 19, currency: 'USD' }, blurb: 'Shared WhatsApp inbox and lead pipeline for your whole team', features: ['chat', 'team', 'contacts', 'analytics'] },
+    { id: 'standard', name: 'Standard', usd: 49, maxNumbers: 3, local: { amount: 49, currency: 'USD' }, blurb: 'Everything in Basic, plus bulk messaging and follow-ups', features: ['chat', 'team', 'contacts', 'analytics', 'bulk'] },
     { id: 'pro', name: 'Pro', usd: 99, maxNumbers: 5, local: { amount: 99, currency: 'USD' }, blurb: 'Everything in Standard, plus the AI chatbot that replies for you', features: ['chat', 'team', 'contacts', 'analytics', 'bulk', 'ai'] },
     { id: 'ultra', name: 'Ultra', usd: 199, maxNumbers: null, local: { amount: 199, currency: 'USD' }, blurb: 'Everything in Pro, plus unlimited numbers, voice replies in your voice and analytics per number', features: ['chat', 'team', 'contacts', 'analytics', 'bulk', 'ai', 'voice', 'number_analytics'] },
   ] });
