@@ -196,17 +196,17 @@ section{padding:104px 0;scroll-margin-top:72px}
 
 /* pricing */
 .pricing{background:var(--mist)}
-.plans{margin-top:50px;display:grid;grid-template-columns:repeat(4,1fr);gap:18px;align-items:stretch}
-@media(max-width:1180px){.plans{grid-template-columns:repeat(2,1fr)}}
+.plans{margin-top:50px;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px;align-items:stretch}
+@media(max-width:1180px){.plans{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:640px){.plans{grid-template-columns:1fr;max-width:460px}}
 .plan{padding:28px 24px}.plan .blurb{min-height:72px}
-.plan{background:#fff;border:1px solid var(--line);border-radius:24px;padding:30px 28px;display:flex;flex-direction:column}
+.plan{background:#fff;border:1px solid var(--line);border-radius:24px;padding:30px 28px;display:flex;flex-direction:column;min-width:0}
 .plan.pop{background:var(--pine);color:#fff;border-color:var(--pine)}
 .plan h3{font-size:26px;font-weight:700}
 .plan .blurb{margin-top:6px;color:var(--ink-2);font-size:15.5px;min-height:48px}
 .plan.pop .blurb{color:#B9CDC4}
-.price{margin-top:22px;display:flex;align-items:baseline;gap:6px}
-.price b{font:700 42px var(--display);letter-spacing:-.03em}
+.price{margin-top:22px;display:flex;flex-wrap:wrap;align-items:baseline;column-gap:6px;row-gap:2px;min-width:0}
+.price b{font:700 clamp(30px,2.6vw,42px) var(--display);letter-spacing:-.03em;white-space:nowrap}
 .price span{color:var(--ink-2)}.plan.pop .price span{color:#B9CDC4}
 .usd{font-size:13.5px;color:var(--ink-2);margin-top:2px;min-height:20px}.plan.pop .usd{color:#B9CDC4}
 .plan ul{list-style:none;padding:0;margin:22px 0 26px;display:grid;gap:10px;flex:1;font-size:15.5px}
@@ -224,7 +224,7 @@ section{padding:104px 0;scroll-margin-top:72px}
 .terms .off{font-size:12.5px;font-weight:700;color:var(--leaf);background:var(--mint);padding:2px 8px;border-radius:999px}
 .terms button[aria-pressed=true] .off{background:var(--sun);color:var(--pine)}
 .plans{margin-top:30px}
-.price s{font-size:18px;color:var(--ink-2);font-weight:500;margin-right:2px}.plan.pop .price s{color:#B9CDC4}
+.price s{flex-basis:100%;font-size:16px;color:var(--ink-2);font-weight:500;line-height:1.2}.plan.pop .price s{color:#B9CDC4}
 @media(max-width:640px){.terms{width:100%;border-radius:18px}.terms button{flex:1 1 45%;justify-content:center;border-radius:14px}}
 
 /* testimonials (only shown when real quotes are added) */
@@ -707,7 +707,7 @@ footer.site nav{display:flex;flex-wrap:wrap;gap:8px 0}
   const has = (p, f) => ['numbers', 'roles', 'leads'].includes(f) || p.features.includes(f === 'followups' ? 'bulk' : f);
   const featText = (p, f) => (f === 'numbers' ? (p.maxNumbers == null ? 'Unlimited WhatsApp numbers' : `${p.maxNumbers} WhatsApp number${p.maxNumbers === 1 ? '' : 's'}`) : FEAT[f]);
   let proLocal = null;
-  const money = (a, c) => { try { return new Intl.NumberFormat(undefined, { style: 'currency', currency: c, minimumFractionDigits: a % 1 ? 2 : 0, maximumFractionDigits: a % 1 ? 2 : 0 }).format(a); } catch { return c + ' ' + a; } };
+  const money = (a, c) => { try { return new Intl.NumberFormat(undefined, { style: 'currency', currency: c, currencyDisplay: 'narrowSymbol', minimumFractionDigits: a % 1 ? 2 : 0, maximumFractionDigits: a % 1 ? 2 : 0 }).format(a); } catch { return c + ' ' + a; } };
   // Billing periods. The server sends them with the prices; these are only used until it answers.
   const TERMS = [
     { id: 'monthly', months: 1, off: 0, label: 'Monthly', every: 'month' },
@@ -740,7 +740,7 @@ footer.site nav{display:flex;flex-wrap:wrap;gap:8px 0}
       const bl = el('p', 'blurb'); bl.textContent = p.blurb;
       const total = totalOf(p, t); const perMonth = Math.round((total.amount / t.months) * 100) / 100;
       const pr = el('div', 'price');
-      if (t.months > 1) { const was = el('s'); was.textContent = money(p.local.amount, p.local.currency); pr.append(was); }
+      const was = el('s'); was.textContent = t.months > 1 ? money(p.local.amount, p.local.currency) + '/month' : ''; if (!was.textContent) { was.style.visibility = 'hidden'; was.textContent = '-'; } pr.append(was);
       const b = el('b'); b.textContent = money(perMonth, p.local.currency); const sp = el('span'); sp.textContent = '/month'; pr.append(b, sp);
       const usd = el('p', 'usd'); usd.textContent = t.months > 1 ? `${money(total.amount, total.currency)} billed every ${t.every}` : p.local.currency !== 'USD' ? `US$${p.usd}/month, billed in ${p.local.currency}` : 'Billed monthly';
       const ul = el('ul'); ORDER.forEach((f) => { const li = el('li', has(p, f) ? '' : 'off'); li.textContent = featText(p, f); ul.append(li); });
