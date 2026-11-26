@@ -217,6 +217,15 @@ section{padding:104px 0;scroll-margin-top:72px}
 .plan .btn{width:100%}
 .pop-tag{align-self:flex-start;background:var(--sun);color:var(--pine);font-size:13px;font-weight:600;padding:4px 12px;border-radius:999px;margin-bottom:14px}
 .price-note{margin-top:22px;color:var(--ink-2);font-size:15px}
+.terms{margin:34px auto 0;display:flex;flex-wrap:wrap;gap:4px;width:max-content;max-width:100%;padding:5px;background:#fff;border:1px solid var(--line);border-radius:999px}
+.terms button{display:inline-flex;align-items:center;gap:8px;height:42px;padding:0 18px;border:0;border-radius:999px;background:transparent;font-family:inherit;font-size:15px;font-weight:500;color:var(--ink-2);cursor:pointer}
+.terms button:hover{color:var(--pine)}
+.terms button[aria-pressed=true]{background:var(--pine);color:#fff}
+.terms .off{font-size:12.5px;font-weight:700;color:var(--leaf);background:var(--mint);padding:2px 8px;border-radius:999px}
+.terms button[aria-pressed=true] .off{background:var(--sun);color:var(--pine)}
+.plans{margin-top:30px}
+.price s{font-size:18px;color:var(--ink-2);font-weight:500;margin-right:2px}.plan.pop .price s{color:#B9CDC4}
+@media(max-width:640px){.terms{width:100%;border-radius:18px}.terms button{flex:1 1 45%;justify-content:center;border-radius:14px}}
 
 /* testimonials (only shown when real quotes are added) */
 .quotes{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:22px;margin-top:50px}
@@ -509,7 +518,8 @@ footer.site nav{display:flex;flex-wrap:wrap;gap:8px 0}
 
 <section class="pricing" id="pricing" aria-labelledby="price-h">
   <div class="wrap">
-    <div class="sec-head"><h2 id="price-h">Simple monthly plans.</h2><p>Every plan includes unlimited team members. Every free trial is Ultra, with every feature, for 3 days. Switch to the plan that fits you anytime.</p></div>
+    <div class="sec-head"><h2 id="price-h">Simple plans. Save up to 50%.</h2><p>Pay monthly, or pay up front and save: 10% off for 3 months, 20% off for 6 months, 50% off for a year. Every plan includes unlimited team members, and every free trial is Ultra for 3 days.</p></div>
+    <div class="terms" id="terms" role="group" aria-label="Billing period"></div>
     <div class="plans" id="plans"></div>
     <p class="price-note" id="priceNote"></p>
   </div>
@@ -541,7 +551,7 @@ footer.site nav{display:flex;flex-wrap:wrap;gap:8px 0}
       <details><summary>Is bulk messaging safe for my number?</summary><p>WhatsEaze sends one message at a time with natural gaps and a daily limit, and skips anyone who opted out. Only message people who know you; sending to cold lists can still get any number blocked by WhatsApp.</p></details>
       <details><summary>How does the free trial work?</summary><p>Sign up and add your card at checkout. For 3 days you get everything in Ultra and pay nothing. When the trial ends you continue on Ultra, or switch to a smaller plan from the Billing page first; cancel any time before it ends and you're never charged.</p></details>
       <details><summary>Which currency will I pay in?</summary><p>All prices are in US dollars and you pay in US dollars at checkout. Your bank converts it if your card is in another currency. Taxes are added where they apply.</p></details>
-      <details><summary>Can I cancel anytime?</summary><p>Yes. Cancel from the Billing page and you keep access until the end of the month you've paid for.</p></details>
+      <details><summary>Can I cancel anytime?</summary><p>Yes. Cancel from the Billing page and you keep access until the end of the period you've paid for.</p></details>
     </div>
   </div>
 </section>
@@ -697,19 +707,45 @@ footer.site nav{display:flex;flex-wrap:wrap;gap:8px 0}
   const has = (p, f) => ['numbers', 'roles', 'leads'].includes(f) || p.features.includes(f === 'followups' ? 'bulk' : f);
   const featText = (p, f) => (f === 'numbers' ? (p.maxNumbers == null ? 'Unlimited WhatsApp numbers' : `${p.maxNumbers} WhatsApp number${p.maxNumbers === 1 ? '' : 's'}`) : FEAT[f]);
   let proLocal = null;
-  const money = (a, c) => { try { return new Intl.NumberFormat(undefined, { style: 'currency', currency: c, maximumFractionDigits: a < 10 && a % 1 ? 2 : 0 }).format(a); } catch { return c + ' ' + a; } };
+  const money = (a, c) => { try { return new Intl.NumberFormat(undefined, { style: 'currency', currency: c, minimumFractionDigits: a % 1 ? 2 : 0, maximumFractionDigits: a % 1 ? 2 : 0 }).format(a); } catch { return c + ' ' + a; } };
+  // Billing periods. The server sends them with the prices; these are only used until it answers.
+  const TERMS = [
+    { id: 'monthly', months: 1, off: 0, label: 'Monthly', every: 'month' },
+    { id: 'quarterly', months: 3, off: 10, label: '3 months', every: '3 months' },
+    { id: 'half', months: 6, off: 20, label: '6 months', every: '6 months' },
+    { id: 'yearly', months: 12, off: 50, label: '1 year', every: 'year' },
+  ];
+  let term = 'monthly'; let last = null;
+  const totalOf = (p, t) => (p.prices && p.prices[t.id] ? p.prices[t.id].local : { currency: p.local.currency, amount: Math.round(p.local.amount * t.months * (100 - t.off)) / 100 });
+  const renderTerms = (list) => {
+    const box = document.getElementById('terms'); box.replaceChildren();
+    list.forEach((t) => {
+      const b = el('button'); b.type = 'button'; b.setAttribute('aria-pressed', String(t.id === term));
+      b.append(document.createTextNode(t.label));
+      if (t.off) { const o = el('span', 'off'); o.textContent = `${t.off}% off`; b.append(o); }
+      b.onclick = () => { term = t.id; renderPlans(last); };
+      box.append(b);
+    });
+  };
   const renderPlans = (d) => {
+    last = d;
+    const terms = d.terms && d.terms.length ? d.terms : TERMS;
+    const t = terms.find((x) => x.id === term) || terms[0];
+    renderTerms(terms);
     const wrap = document.getElementById('plans'); wrap.replaceChildren();
     d.plans.forEach((p) => {
       const card = el('article', 'plan' + (p.id === 'standard' ? ' pop' : ''));
       if (p.id === 'standard') card.append(Object.assign(el('span', 'pop-tag'), { textContent: 'Most popular' }));
       const h = el('h3'); h.textContent = p.name;
       const bl = el('p', 'blurb'); bl.textContent = p.blurb;
-      const pr = el('div', 'price'); const b = el('b'); b.textContent = money(p.local.amount, p.local.currency); const sp = el('span'); sp.textContent = '/month'; pr.append(b, sp);
-      const usd = el('p', 'usd'); usd.textContent = p.local.currency !== 'USD' ? `US$${p.usd}/month, billed in ${p.local.currency}` : '';
+      const total = totalOf(p, t); const perMonth = Math.round((total.amount / t.months) * 100) / 100;
+      const pr = el('div', 'price');
+      if (t.months > 1) { const was = el('s'); was.textContent = money(p.local.amount, p.local.currency); pr.append(was); }
+      const b = el('b'); b.textContent = money(perMonth, p.local.currency); const sp = el('span'); sp.textContent = '/month'; pr.append(b, sp);
+      const usd = el('p', 'usd'); usd.textContent = t.months > 1 ? `${money(total.amount, total.currency)} billed every ${t.every}` : p.local.currency !== 'USD' ? `US$${p.usd}/month, billed in ${p.local.currency}` : 'Billed monthly';
       const ul = el('ul'); ORDER.forEach((f) => { const li = el('li', has(p, f) ? '' : 'off'); li.textContent = featText(p, f); ul.append(li); });
       if (p.id === 'pro') proLocal = p.local;
-      const a = el('a', 'btn ' + (p.id === 'standard' ? 'btn-sun' : 'btn-primary')); a.href = 'https://www.whatseaze.com/app#/signup'; a.textContent = 'Start free trial';
+      const a = el('a', 'btn ' + (p.id === 'standard' ? 'btn-sun' : 'btn-primary')); a.href = 'https://www.whatseaze.com/app#/signup' + '?term=' + t.id; a.textContent = 'Start free trial';
       card.append(h, bl, pr, usd, ul, a); wrap.append(card);
     });
     calc();
